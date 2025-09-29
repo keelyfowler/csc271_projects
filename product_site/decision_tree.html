@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<!-- Keely Fowler, 9/27/25, Decision Tree builder page for MindRacer product -->
+
+<html>
+    <head>
+        <!-- title for decision tree builder page -->
+        <title>Decision Tree</title>
+    </head>
+    <body>
+
+        <br />
+        <!-- logo section w/ inline nav links-->
+        <img src="images/mindracer-logo-v1.png" alt="Logo" width="100" height="auto">
+        &emsp;   &emsp;   &emsp;   &emsp;
+        <!-- links to related web pages  -->
+         <!-- home link temporarily linking to same page since i havent created a home link yet, but mood log works ! -->
+        <a href="decision_tree.html"><strong>Home</strong></a>    &emsp;   &emsp;   &emsp;   &emsp;
+        <a href="mood-log.html"><strong>Mood Log</strong></a>    &emsp;   &emsp;   &emsp;   &emsp;
+        <a href="decision_tree.html"><strong>Decision Builder</strong></a>
+
+        <br/>   <br/>
+        <!-- main page header (largest/h1)-->
+        <h1>Decision Tree Builder</h1>
+
+        <!-- intro paragraph for page/tools purpose and future functionality -->
+        <p> Welcome to the MindRacer Decision Tree Builder! This tool helps you visualize complex decisions so you can break them into manageable steps.
+             This will soon be an interactive decision tree, so problem solving can become more intuitive and less of a daunting process ! </p>
+    
+        <!-- AI's image rendering for my mindracer mascot :) -->
+        <img src="images/mind_running.png" alt="Mindracer Mascot running toward decision tree " width="400">
+        <!-- side elements from wireframe , will *eventually* be interactive-->
+        <button>Add</button> &emsp; <button>Delete</button> &emsp; <button>Link</button>
+
+        <!-- future section to dsiplay the users current tree(s) -->
+        <h2>Current decision tree will eventually display here!</h2>
+        <!-- example imagery for chose activities (ie reading etc) -->
+        <img src="images/mind_reading.png" alt="MindRacer mascot reading" width="200">
+        <!-- table for decision tree -->
+        <!-- i used AI for help, i knew i wanted to set up a form with a table set up, but was getting lost on the formatting. i wanted to have better organization for my user inputs -->
+        <h2>Build Your Decision Tree</h2>
+        <form>
+            <table border="1">
+                <tr>
+                    <th>Field</th>
+                    <th>Input</th>
+                </tr>
+                <tr>
+                    <td><label for="tree-name">Tree Name:</label></td>
+                    <td><input type="text" id="tree-name" name="tree-name" required maxlength="50"></td>
+                </tr>
+                <tr>
+                    <td><label for="description">Description:</label></td>
+                    <td><input type="text" id="description" name="description" maxlength="100"></td>
+                </tr>
+                <tr>
+                    <td>Complexity:</td>
+                    <td>
+                        <input type="radio" name="complexity" value="simple" id="simple">
+                        <label for="simple">Simple</label><br>
+                        <input type="radio" name="complexity" value="medium" id="medium">
+                        <label for="medium">Medium</label><br>
+                        <input type="radio" name="complexity" value="complex" id="complex">
+                        <label for="complex">Complex</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Options:</td>
+                    <td>
+                        <input type="checkbox" name="share" value="yes" id="share">
+                        <label for="share">Share with others</label><br>
+                        <input type="checkbox" name="notify" value="yes" id="notify">
+                        <label for="notify">Email notifications</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Create Tree"></td>
+                </tr>
+            </table>
+        </form>
+            
+        <h2>Too Stressed? Let's Meditate ~</h2>
+        <!-- embedded video (line below taken directly from youtube's share/embed feature) -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/y8KSid0WFwY?si=1aEbS3SGlTDef6IA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </body>
+</html>
