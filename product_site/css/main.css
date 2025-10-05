@@ -1,0 +1,145 @@
+/* Keely Fowler, 10/5/25 - Stylesheet for MindRacer product website */
+
+/* GENERALLL */
+/* MAIN STUFF STYLING */
+/* default background color for all pages */
+body {
+    /* sage-green-ish color to be defaulted for all pages */
+    background-color: #c5cbae;
+}
+
+/* styling for HEADINGS */
+/* After extensive searching, Verdana was my choice that's synonymous with my product plam, 
+sans(without) serifs to soften the tone. Font-family to be relevant throughout all pages  */
+h1 {
+    color: #914040;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 36px;
+    text-align: center;
+}
+
+h2 {
+    color: #914040;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 32px;
+    text-align: center;
+}
+
+h3 {
+    color: #914040;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 28px;
+    text-align: center;
+}
+
+h4 {
+    color: #914040;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 24px;
+    text-align: center;
+}
+
+h5 {
+    color: #914040;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10px;
+    text-align: center;
+}
+
+
+
+/*  PARAGRAPH STYLING  */
+/* styling for paragraph sections */
+p {
+    color: #4B5320;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+
+/* definitely was lost here so visited w3 for image alignment tips */
+img {
+    border-radius: 10%; /*soften the edges to work better with border*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/* *ACCENT STYLING* */
+/* styling for horizontal rules/lines */
+hr {
+    border: none; /* rid the default border */
+    height: 20px; /* raise the height for darker separation*/
+    background-color: #c5cbae;
+}
+
+/* styling for input /form stuff */
+/* had to look up how to access different input elements */
+/*  */
+input[type="radio"],input[type="submit"],
+input[type="text"]{
+    color: #4B5320;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 18px;
+}
+/* had to ask AI for help specifying the text in my input forms (ie. helpful/overwhelmed/curious buttons on blog page */
+label, form {
+    background-color: #8d9862;
+    color: #4B5320;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+/* ANCHOR TAG/LINK STYLE */
+a:link { /*unvisited links/anchors*/
+    color: #c56363;
+    text-decoration: none;
+}
+a:visited { /*visited links/anchors*/
+    color: #a44343;
+    text-decoration: none;
+}   
+a:hover {
+    
+    color: #6b3030;
+    text-decoration: underline;
+}
+
+
+
+/* SPECIFIC STYLING/ID SELECTORS */
+/* figured out online how to get Logo, and links all inline and looking nice */
+#main_navigation {
+    background-color: #8d9862;
+    padding: 15px; 
+    display: flex; /* arrange items horizontally */
+    align-items: center; /* vertical alignment */
+    gap: 60px; /* like padding, but between items */
+}
+
+/* grabbing the image from this class */
+#main_navigation img {
+    margin-right: auto;
+}
+
+#main_navigation a {
+    margin: 0;
+    font-size: 22px;
+}
+
+
+
+/* blog.html blog class selector css section */
+/* played around with different features to figure out what worked */
+.blog-post {
+    margin-bottom: 30px; /*adds space outside the element*/
+    padding: 30px; /* adds space inside the element to add some breathing room */
+    border: 3px solid #914040;/* wanted to add a border around each of the blog posts */
+    /* i wanted to soften the corners so i searched a way to round them  */
+    border-radius: 50px;
+}
