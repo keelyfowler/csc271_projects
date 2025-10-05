@@ -1,29 +1,37 @@
+<!-- Keely Fowler, 9/27/25, Decision Tree builder page for MindRacer product -->
 <!DOCTYPE html>
 
-<!-- Keely Fowler, 9/27/25, Decision Tree builder page for MindRacer product -->
-
 <html lang="en">
+
     <head>
         <!-- had to look up how to resolve error from w3's validator (the pasted error from site: Error: The character encoding was not declared.)-->
         <meta charset="UTF-8">
         <!-- title for decision tree builder page -->
         <title>Decision Tree</title>
+        <!-- link for external css stylesheet -->
+         <link href="css/main.css" type="text/css" rel="stylesheet">
     </head>
+
+
     <body>
 
-        <br>
-        <!-- logo section w/ inline nav links-->
-        <img src="images/mindracer-logo-v1.png" alt="Logo" width="100">
-        &emsp;   &emsp;   &emsp;   &emsp;
-        <!-- links to related web pages  -->
-         <!-- home link temporarily linking to same page since i havent created a home link yet, but mood log works ! -->
-        <a href="decision_tree.html"><strong>Home</strong></a>    &emsp;   &emsp;   &emsp;   &emsp;
-        <a href="mood-log.html"><strong>Mood Log</strong></a>    &emsp;   &emsp;   &emsp;   &emsp;
-        <a href="decision_tree.html"><strong>Decision Builder</strong></a>
+        <!-- made a divider for this section, relevant to all page for easy id access and css styling -->
+        <div id="main_navigation">
+            <!-- logo section w/ inline nav links-->
+            <img src="images/mindracer-logo-v1.png" alt="Logo" width="150">
+            <!-- links to related web pages  -->
+            <!-- home link temporarily linking to same page since i havent created a home link yet, but mood log works ! -->
+            <a href="decision_tree.html"><strong>Home</strong></a>  
+            <a href="mood-log.html"><strong>Mood Log</strong></a>   
+            <a href="blog.html"><strong>Blog</strong></a>   
+            <a href="decision_tree.html"><strong>Decision Builder</strong></a>
+           <hr> 
+        </div>
 
-        <br>   <br>
+
+        <!-- decision tree page header -->
         <!-- main page header (largest/h1)-->
-        <h1>Decision Tree Builder</h1>
+        <h1>MindRacer's Decision Tree Builder</h1>
 
         <!-- intro paragraph for page/tools purpose and future functionality -->
         <p> Welcome to the MindRacer Decision Tree Builder! This tool helps you visualize complex decisions so you can break them into manageable steps.
