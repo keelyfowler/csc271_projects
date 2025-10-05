@@ -85,7 +85,7 @@ input[type="text"]{
     font-family: Verdana, Geneva, sans-serif;
     font-size: 18px;
 }
-/* had to ask AI for help specifying the text in my input forms (ie. helpful/overwhelmed/curious buttons on blog page */
+/* had to look online (w3) for help specifying the text in my input forms (ie. helpful/overwhelmed/curious buttons on blog page */
 label, form {
     background-color: #8d9862;
     color: #4B5320;
