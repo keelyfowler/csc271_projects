@@ -11,38 +11,10 @@ body {
 /* styling for HEADINGS */
 /* After extensive searching, Verdana was my choice that's synonymous with my product plam, 
 sans(without) serifs to soften the tone. Font-family to be relevant throughout all pages  */
-h1 {
+h1, h2, h3, h4, h5, h6 {
     color: #914040;
     font-family: Verdana, Geneva, sans-serif;
     font-size: 36px;
-    text-align: center;
-}
-
-h2 {
-    color: #914040;
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 32px;
-    text-align: center;
-}
-
-h3 {
-    color: #914040;
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 28px;
-    text-align: center;
-}
-
-h4 {
-    color: #914040;
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 24px;
-    text-align: center;
-}
-
-h5 {
-    color: #914040;
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 10px;
     text-align: center;
 }
 
@@ -120,6 +92,7 @@ a:hover {
     display: flex; /* arrange items horizontally */
     align-items: center; /* vertical alignment */
     gap: 60px; /* like padding, but between items */
+    overflow: auto;
 }
 
 /* grabbing the image from this class */
@@ -130,8 +103,13 @@ a:hover {
 #main_navigation a {
     margin: 0;
     font-size: 22px;
+    float: right;
 }
 
+#main_navigation a:hover {
+    background-color: #4B5320;
+    color: ;
+}
 
 
 /* blog.html blog class selector css section */
