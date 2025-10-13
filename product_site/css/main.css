@@ -116,21 +116,26 @@ a:hover {
 /* figured out online how to get Logo, and links all inline and looking nice */
 #main_navigation {
     background-color: #8d9862;
-    padding: 15px; 
-    display: flex; /* arrange items horizontally */
-    align-items: center; /* vertical alignment */
-    gap: 60px; /* like padding, but between items */
+    padding: 20px; 
+    /* arrange items horizontally */
+    /* display: flex;  */
+    /* vertical alignment */
+    /* align-items: center;  */
+    /* like padding, but between items */
+    gap: 60px; 
+    font-size: 30px;
 }
 
 /* grabbing the image from this class */
 #main_navigation img {
-    margin-right: auto;
-}
-
+    float: left;
+} 
+    
+ 
 #main_navigation a {
-    margin: 0;
-    font-size: 22px;
-}
+    padding-right: 5%;
+    padding-left: 5%;
+} 
 
 
 
