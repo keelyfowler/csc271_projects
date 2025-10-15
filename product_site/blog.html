@@ -18,6 +18,7 @@
     </head>
 
 
+
     <body>
 
         <!-- made a divider for this section, relevant to all page for easy id access and css styling -->
@@ -25,22 +26,25 @@
             <!-- logo section w/ inline nav links-->
             <img src="images/mindracer-logo-v1.png" alt="Logo" width="150">
             <!-- links to related web pages  -->
-            <!-- home link temporarily linking to same page since i havent created a home link yet, but mood log works ! -->
+            <!-- home & decision builder both go to decision_tree for now since i havent made a real home page yet -->
             <a href="decision_tree.html"><strong>Home</strong></a>  
             <a href="mood-log.html"><strong>Mood Log</strong></a>   
-            <a href="blog.html"><strong>Blog</strong></a>   
+            <a href="blog.html" class="active"><strong>Blog</strong></a>   
             <a href="decision_tree.html"><strong>Decision Builder</strong></a>
            <hr> 
         </div>
 
 
-        <!-- blog page header -->
-        <h1>MindRacer's Blog</h1>
-        <p>Here, you can find articles that could be useful for your self betterment journey, and log how these articles might make you feel!</p>
-        <br><hr><br>
+
+    <div class="content-box">
+    <!-- blog page header -->
+    <h1>MindRacer's Blog</h1>
+    <p>Here, you can find articles that could be useful for your self betterment journey, and log how these articles might make you feel!</p>
+    <br><hr><br>
 
         <!-- this section is a placeholder for resourceful blog posts
          div tags might be easier in terms of organization and modification with CSS later -->
+
 
         <!-- temp blog post placeholder 1 -->
         <!-- class selector for css -->
@@ -57,7 +61,8 @@
                 <input type="radio" name="mood1" value="curious">Curious
                 <input type="submit" value="Submit">
             </form>
-        </div> <br><hr><br>
+        </div> 
+        <br><hr><br>
 
         <!-- temp blog post placeholder 2 -->
         <div class="blog-post">
@@ -75,13 +80,14 @@
             </form>
         </div> <br><hr><br>
 
-        <!-- temp blog post placeholder 3 -->
-        <div class="blog-post">
+    <!-- temp blog post placeholder 3 -->
+    <div class="blog-post">
             <!-- image sourced from UnSplash -->
             <h2>How to Use a Mood Tracker</h2>
             <h3><a href="https://www.verywellmind.com/what-is-a-mood-tracker-5119337" target="_blank">Click here to read more</a> ~ <em>How to Use a Mood Tracker</em> from Very Well Mind!</h3>
             <img src="images/crying_women.jpg" alt="Crying Women Creator: Galanda, Mikuláš Date: 1938" width="300">
             <p>Research shows that tracking your emotions can improve mental health and self-awareness. Here, you can find tips and tricks to get start.</p>
+            
             <form>
                 <p>How does this topic make you feel?</p>
                 <input type="radio" name="mood3" value="helpful">Helpful
@@ -89,8 +95,10 @@
                 <input type="radio" name="mood3" value="curious">Curious
                 <input type="submit" value="Submit">
             </form>
-        </div> <br><hr><br>
 
+        </div> 
+        <br><hr><br>
 
+</div>
     </body>
 </html>

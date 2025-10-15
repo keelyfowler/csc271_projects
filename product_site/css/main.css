@@ -31,11 +31,14 @@ p {
 
 
 /* definitely was lost here so visited w3 for image alignment tips */
+/* updated so images float left and text wraps around them*/
 img {
-    border-radius: 10%; /*soften the edges to work better with border*/
+    border-radius: 10%; /* soften the edges to work better with border */
+    float: left; /*images float left, text wraps on right */
+    margin: 15px; /*keep text from touching the images */
+    max-width: 100%; /* for responsive stuff */
+    height: auto; /*keeps the aspect ratio */
     display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 
@@ -99,9 +102,11 @@ a:hover {
 }
 
 /* grabbing the image from this class */
+/* logo needs margin set to 0 since i added margin to all images above but dont want it on the nav logo*/
 #main_navigation img {
     float: left;
-} 
+    margin: 0; 
+}
     
  
 #main_navigation a {
@@ -111,7 +116,15 @@ a:hover {
 
 #main_navigation a:hover {
     background-color: #4B5320;
-    color: ;
+    color: #ffffff; /*added white text color for better contrast on hover*/
+}
+
+/*styling for whatever page you're currently on in the nav*/
+#main_navigation a.active {
+    background-color: #4B5320;
+    color: #c5cbae;
+    font-weight: bold;
+    border-bottom: 3px solid #c5cbae; /*adds a little underline thing */
 }
 
 
@@ -123,4 +136,41 @@ a:hover {
     border: 3px solid #914040;/* wanted to add a border around each of the blog posts */
     /* i wanted to soften the corners so i searched a way to round them  */
     border-radius: 50px;
+}
+
+/* Main content container - centers everything and adds padding/background */
+/* had to wrap all the body content (not nav) in divs with this class in my html files */
+.content-box {
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto; /*this combo centers it */
+    padding: 40px;
+    background-color: #d4dac0; /*a lil lighter than body background*/
+}
+
+/* media query stuff for mobile screens (600px width or smaller) */
+@media (max-width: 600px) {
+    /* nav links need to stack vertically on mobile instead of horizontal*/
+    #main_navigation a {
+        display: block;
+        float: none; /*get rid of the float */
+        text-align: left;
+        padding: 10px 0; 
+    }
+
+    /* content box takes up full width on smaller screens */
+    .content-box {
+        width: 100%;
+        max-width: 100%;
+        padding: 30px; /*less padding on mobile */
+        font-size: 20px; /* bigger font for readability */
+    }
+
+    /* this makes sure images willshrink to fit but also dont get stretched bigger than they actually are */
+    img {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+    }
 }
