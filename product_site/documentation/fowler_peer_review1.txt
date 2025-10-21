@@ -1,0 +1,37 @@
+peer review
+marvens,meghan,emmanuel,angel,kenny <- classmates that reviewed. angel and kenny reviewed everything in lab, and meghan, marvens, and emmanuel via last week's discussion post
+
+A.Content & Audience
+1. Did your peers clearly understand your site's purpose and target audience?
+They all seem to have! they understood that MindRacer is a mental health / productivity tool for people dealing with executive dysfunction, decision paralysis, and managing emotions. the target audience came through as young adults (college-age and beyond) who struggle with ADHD symptoms or feel overwhelmed by decision-making. kenny & angel both picked up on the decision tree builder and mood tracking features, so it seems the purpose was clear.
+2. What suggestions did they make to improve your site's content or messaging?
+marvens mentioned that the home and decision builder navigation seemed like the same page, which makes sense since i haven't made a real home page yet and both link to decision_tree.html for now. that's definitely something i need to fix so users don't get confused about where they are on the site.
+
+
+B. Design & User Experience
+3. How did your peers respond to your site's design (layout, color, typography, or organization)??
+overall people really liked the design! meghan said it's well organized and designed well. emmanuel thought the layout and design were "really nice, probably best i've seen." kenny and angel both appreciated the color theme and the green shades with pink/red headers. the welcoming vibe and contrast were positives. but meghan pointed out that the nav bar color is hard to read, especially in mobile mode where the contrast isn't great. emmanuel also mentioned that buttons and input boxes could be styled better to match the rest of the design since they seem a bit bland compared to the rest of the page.
+4. Did they find the design effective in communicating your message and engaging users?
+The design seemed effective for the most part. kenny said the structure and content are good, and angel noted that the site looks good and is sized correctly on ipad and iphone. the mascot images and overall aesthetic helped communicate the supportive, user-friendly mental health tool vibe. but the contrast issues and some styling inconsistencies (like the form elements) did affect the overall user experience a bit.
+
+
+C.Functionality & Performance
+5. What issues did your peers identify with features or interactivity on your site?
+meghan pointed out that when you go into mobile mode, the form submission buttons are really tiny and hard to click. that's a significant usability issue i need to fix. kenny mentioned that some images overflow, which affects the layout. angel noted that the resizing doesn't work as well on the different tabs (like blog and mood-log pages) compared to the home/decision tree page, and the text needs to be better resized for mobile.
+6. Did they note any pages or elements that loaded slowly or inconsistently across devices or browsers?
+yes! both kenny and angel ran lighthouse tests and found performance issues. mobile performance was 55-56 and desktop was really low at 31-43. the main issues were font load times and large image load times. kenny specifically suggested making images smaller before uploading them to improve load time and performance. angel also mentioned HTML validation errors on one page (the blog page had trailing slash issues on void elements).
+
+
+D.Accessibility & Usability
+7. What feedback did you receive about accessibility (e.g., alt text, color contrast, keyboard navigation)?
+the biggest accessibility issue across the board was color contrast. meghan, kenny, and angel all mentioned that the nav bar has contrast issues - the pink/red text on the green background is hard to read. kenny noted there were 12 contrast errors when running the WAVE tool. angel's lighthouse report showed accessibility scores of 87 for both mobile and desktop, with the main issue being that background colors don't have sufficient contrast ratios. kenny also found 9 errors total on the blog page from the WAVE tool.
+8. What can you improve to make your site more inclusive and user-friendly?
+i need to fix the color contrast in the nav bar by making the pink text darker or adjusting the background color so it meets WCAG standards. kenny suggested making the pink a little darker to help with contrast. i also need to make sure all my form buttons are bigger and more clickable on mobile. angel mentioned checking alt text, so i should review all my images to make sure the alt text is descriptive enough for screen readers.
+
+
+E . Action Plan
+9. What did your peers like most about your site?
+people loved the overall concept and design! emmanuel said it "seems like it will have a great end result" and thought my layout was the best he'd seen. meghan said "the site looks great" and kenny liked the color theme, images, and structure. angel specifically called out that the site looks good and is sized correctly on ipad and iphone, and that responsive design works well on the decision tree page. the MindRacer mascot and welcoming aesthetic also got positive feedback.
+10. What two improvements will you make based on their feedback, and how will you implement them?
+first improvement: fix color contrast issues in the navigation bar. i'll adjust the text color from the current pink (#c56363) to a darker shade that meets WCAA contrast standards. i'll test it using a contrast checker tool and probably go with something closer to #8b2e2e or darker. i'll update this in my main.css file under the #main_navigation a selector.
+second improvement: optimize images and improve mobile responsiveness. i'll resize all my images before uploading them to reduce file size and improve load times. i'll also fix the mobile styling issues by making form buttons bigger (increase font-size and padding in the media query section) and ensuring text resizes properly on all pages, not just decision_tree.html. i'll test this across different screen sizes using chrome dev tools to make sure everything looks good on mobile, tablet, and desktop.

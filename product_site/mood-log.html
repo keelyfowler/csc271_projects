@@ -5,10 +5,27 @@
 
     <head>
         <meta charset="UTF-8">
-        <!-- mood log page title -->
-        <title>Mood Log</title>
+        <!-- meta: helps search engines understand the mood tracking & emotional wellness features -->
+        <meta name="description" content="track your emotional wellness journey with mindracer's mood tracker and mental health journal. discover patterns, build healthy habits, and grow your emotional awareness day by day.">
+        <!-- social: these tags help make our links look nice when shared on social media -->
+        <meta property="og:title" content="mindracer mood tracker · emotional wellness tool">
+        <meta property="og:description" content="track your emotional wellness journey with mindracer's mood tracker and mental health journal. discover patterns, build healthy habits, and grow your emotional awareness day by day.">
+        <meta property="og:image" content="images/mindracer-logo-v1.png">
+        <meta property="og:url" content="https://keelyfowler.rhody.dev/csc271_projects/product_site/mood-log.html">
+        <!-- title: mood tracker for your emotional wellness journey -->
+        <title>mindracer mood tracker · emotional wellness tool</title>
         <!-- link for external css stylesheet -->
         <link href="css/main.css" type="text/css" rel="stylesheet">
+        <!-- google analytics for tracking site usage /improvements -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5T24757TN5"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-5T24757TN5');
+        </script> 
     </head>
 
 
@@ -30,22 +47,23 @@
 
         <div class="content-box">
             <!-- mood log page header -->
-            <h1> MindRacer's Mood Log </h1> 
+            <h1>MindRacer's Mood Tracker: Your Emotional Wellness Journey</h1>
 
             
             <!-- short blurb promoting website & product features -->
             <!-- use of &emsp; to space things out on the page -->
             <h3> 
-                When you're feeling <em>stuck</em> - figuring out a way to get <em>unstuck</em> can feel impossible. </h3> 
+                Building emotional awareness starts with understanding how you feel today! </h3> 
                 <br /> 
                 <hr /> 
                 <br /> <!-- horizontal break to separate main heading & subheading -->
 
-            <p> By offering resources and suggestions to supplement the navigation of emotions, 
-                <strong>MindRacer</strong> aims to streamline your decision making process! </p>
+            <p> Your mental health journal is right here at <strong>MindRacer</strong>! Our mood tracker helps you 
+                spot patterns, celebrate progress, and navigate your emotional wellness journey with confidence. </p>
             
-            <p> On this page you can select how you're feeling, so you can then see associated habits that can 
-                get you feeling motivated! </p>  
+            <p> Start habit tracking that actually works for you! Select your current mood, discover personalized 
+                suggestions, and watch your self-awareness grow day by day. It's your journey... we're just here to 
+                help light the way! </p>  
             <br /> 
             <hr/>
             <br />
@@ -54,7 +72,7 @@
 
             <!-- subheader line to prompt user to select a mood -->
             <h2> 
-                How are you feeling?
+                Let's check in! Your mood tracker is ready...how are you feeling?
             </h2> 
 
             <!-- this section will prompt the user for mood selection with appropriate images -->

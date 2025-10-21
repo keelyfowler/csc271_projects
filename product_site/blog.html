@@ -11,12 +11,28 @@
     <head>
         <!-- character set that i did for hw3 to resolve a w3 validator error -->
         <meta charset="UTF-8">
-        <!-- personal blog page title -->
-        <title>Personal Blog</title>
+        <!-- helps search engines understand our blog's focus on adhd + mental health support -->
+        <meta name="description" content="explore our mental health blog packed with adhd resources, executive dysfunction tips, and self improvement articles. find friendly guidance for decision paralysis and daily challenges.">
+        <!-- social: these tags help make our links look nice when shared on social media -->
+        <meta property="og:title" content="mindracer · mental health blog + adhd resources">
+        <meta property="og:description" content="explore our mental health blog packed with adhd resources, executive dysfunction tips, and self improvement articles. find friendly guidance for decision paralysis and daily challenges.">
+        <meta property="og:image" content="images/mindracer-logo-v1.png">
+        <meta property="og:url" content="https://keelyfowler.rhody.dev/csc271_projects/product_site/blog.html">
+        <!-- mental health blog with adhd resources and tips -->
+        <title>mindracer · mental health blog + adhd resources</title>
         <!-- link for external css stylesheet -->
         <link href="css/main.css" type="text/css" rel="stylesheet">
-    </head>
+        <!-- google analytics for tracking site usage / improvements -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5T24757TN5"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
+          gtag('config', 'G-5T24757TN5');
+        </script> 
+    </head>
 
 
     <body>
@@ -26,31 +42,30 @@
             <!-- logo section w/ inline nav links-->
             <img src="images/mindracer-logo-v1.png" alt="Logo" width="150">
             <!-- links to related web pages  -->
-            <!-- home & decision builder both go to decision_tree for now since i havent made a real home page yet -->
+            <!-- home link temporarily linking to same page since i havent created a home link yet, but mood log works ! -->
             <a href="decision_tree.html"><strong>Home</strong></a>  
             <a href="mood-log.html"><strong>Mood Log</strong></a>   
-            <a href="blog.html" class="active"><strong>Blog</strong></a>   
+            <a href="blog.html"><strong>Blog</strong></a>   
             <a href="decision_tree.html"><strong>Decision Builder</strong></a>
            <hr> 
         </div>
 
-
-
-    <div class="content-box">
-    <!-- blog page header -->
-    <h1>MindRacer's Blog</h1>
-    <p>Here, you can find articles that could be useful for your self betterment journey, and log how these articles might make you feel!</p>
-    <br><hr><br>
+        <div class="content-box">
+        <!-- blog page header -->
+        <h1>MindRacer's Mental Health Blog</h1>
+        <p>Welcome to your friendly space for self improvement and wellness tips! Our mental health blog is packed with 
+        helpful ADHD resources and practical strategies for managing executive dysfunction. The best part? You can track 
+        how each article resonates with you along your journey!</p>
+        <br><hr><br>
 
         <!-- this section is a placeholder for resourceful blog posts
          div tags might be easier in terms of organization and modification with CSS later -->
-
 
         <!-- temp blog post placeholder 1 -->
         <!-- class selector for css -->
         <div class="blog-post">
             <!-- image sourced from UnSplash -->
-            <h2>Understanding Executive Dysfunction</h2>
+            <h2>Executive Dysfunction: Your Guide to Making Life Easier</h2>
             <h3><a href="https://www.additudemag.com/what-is-executive-function-disorder/?srsltid=AfmBOop6uC6A3297_bi18B2DC9lhT5uxXWyNL5XbhhVd0tl73LvCdWtB" target="_blank">Click here to read more</a> ~ <em>Executive Dysfunction? Sign and Symptoms of EFD</em> from Attitude Magazine!</h3>
             <img src="images/BW_parade.jpg" alt="Artist Félix Edouard Vallotton Title Parading through the Streets in Single File Place France" width="300">
             <p>Executive functions help us plan, focus, and manage tasks. Learn about the seven types of self-regulation and how executive dysfunction relates to ADHD.</p>
@@ -61,13 +76,12 @@
                 <input type="radio" name="mood1" value="curious">Curious
                 <input type="submit" value="Submit">
             </form>
-        </div> 
-        <br><hr><br>
+        </div> <br><hr><br>
 
         <!-- temp blog post placeholder 2 -->
         <div class="blog-post">
             <!-- image sourced from UnSplash -->
-            <h2>Navigating Your Way Out of Decision Paralysis</h2>
+            <h2>Decision Paralysis Help: Break Free from Overthinking</h2>
             <h3><a href="https://www.psychologytoday.com/us/blog/the-power-of-parallels/202406/navigating-your-way-out-of-decision-paralysis" target="_blank">Click here to read more</a> ~ <em>Navigating Your Way Out of Decision Paralysis</em> from Psychology Today!</h3>
             <img src="images/person_sitting.jpg" alt="Person Sitting Visualized with 3D HD Render Computer Art" width="300">
             <p>Explore the roots of decision paralysis—from fear of mistakes to perfectionism—and discover how shifting your perspective can help you make choices with confidence.</p>
@@ -80,14 +94,13 @@
             </form>
         </div> <br><hr><br>
 
-    <!-- temp blog post placeholder 3 -->
-    <div class="blog-post">
+        <!-- temp blog post placeholder 3 -->
+        <div class="blog-post">
             <!-- image sourced from UnSplash -->
-            <h2>How to Use a Mood Tracker</h2>
+            <h2>Mood Tracker Tips: Your Daily Wellness Check-in</h2>
             <h3><a href="https://www.verywellmind.com/what-is-a-mood-tracker-5119337" target="_blank">Click here to read more</a> ~ <em>How to Use a Mood Tracker</em> from Very Well Mind!</h3>
             <img src="images/crying_women.jpg" alt="Crying Women Creator: Galanda, Mikuláš Date: 1938" width="300">
             <p>Research shows that tracking your emotions can improve mental health and self-awareness. Here, you can find tips and tricks to get start.</p>
-            
             <form>
                 <p>How does this topic make you feel?</p>
                 <input type="radio" name="mood3" value="helpful">Helpful
@@ -95,10 +108,8 @@
                 <input type="radio" name="mood3" value="curious">Curious
                 <input type="submit" value="Submit">
             </form>
+        </div> <br><hr><br>
 
-        </div> 
-        <br><hr><br>
-
-</div>
+        </div>
     </body>
 </html>

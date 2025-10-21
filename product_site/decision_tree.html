@@ -4,12 +4,29 @@
 <html lang="en">
 
     <head>
-        <!-- had to look up how to resolve error from w3's validator (the pasted error from site: Error: The character encoding was not declared.)-->
-        <meta charset="UTF-8">
-        <!-- title for decision tree builder page -->
-        <title>Decision Tree</title>
+    <!-- had to look up how to resolve error from w3's validator (the pasted error from site: Error: The character encoding was not declared.)-->
+    <meta charset="UTF-8">
+    <!-- title: decision tree builder · problem solving tool -->
+    <title>decision tree builder · problem solving tool</title>
+    <!-- meta: short description w/ keywords for search and accessibility -->
+    <meta name="description" content="mindracer decision tree builder helps ease decision paralysis and boost problem solving — tools for mental clarity, executive dysfunction help and ADHD support.">
+    <!-- social: open graph tags for nicer sharing on social platforms (replace og:url with your live page) -->
+    <meta property="og:title" content="decision tree builder · problem solving tool">
+    <meta property="og:description" content="mindracer decision tree builder helps ease decision paralysis and boost problem solving — tools for mental clarity, executive dysfunction help and ADHD support.">
+    <meta property="og:image" content="images/mind_running.png">
+    <meta property="og:url" content="https://keelyfowler.rhody.dev/csc271_projects/product_site/decision_tree.html">
         <!-- link for external css stylesheet -->
          <link href="css/main.css" type="text/css" rel="stylesheet">
+        <!-- google analytics for tracking site usage / improvements -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5T24757TN5"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-5T24757TN5');
+        </script> 
     </head>
 
 
@@ -32,14 +49,13 @@
         <div class="content-box">
         <!-- decision tree page header -->
         <!-- main page header (largest/h1)-->
-        <h1>MindRacer's Decision Tree Builder</h1>
+        <h1>MindRacer's Decision Tree Builder: A Problem Solving Tool</h1>
 
         <!-- intro paragraph for page/tools purpose and future functionality -->
-        <p> Welcome to the MindRacer Decision Tree Builder! This tool helps you visualize complex decisions so you can break them into manageable steps.
-             This will soon be an interactive decision tree, so problem solving can become more intuitive and less of a daunting process ! </p>
+        <p> Welcome to our decision making tool that helps you break through decision paralysis! Whether you're seeking mental clarity or need executive dysfunction support, this problem solving tool makes complex choices feel manageable. Soon you'll be able to create interactive decision trees, turning overwhelming thoughts into clear, actionable steps ! </p>
     
         <!-- AI's image rendering for my mindracer mascot :) -->
-        <img src="images/mind_running.png" alt="Mindracer Mascot running toward decision tree " width="400">
+        <img src="images/mind_running.png" alt="MindRacer mascot sprinting towards a decision tree builder, representing the journey to better problem solving and clearer choices" width="400">
         <!-- side elements from wireframe , will *eventually* be interactive-->
         <button>Add</button> &emsp; <button>Delete</button> &emsp; <button>Link</button>
 
