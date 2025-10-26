@@ -4,19 +4,21 @@
 <html lang="en">
 
     <head>
-    <!-- had to look up how to resolve error from w3's validator (the pasted error from site: Error: The character encoding was not declared.)-->
-    <meta charset="UTF-8">
-    <!-- title: decision tree builder · problem solving tool -->
-    <title>decision tree builder · problem solving tool</title>
-    <!-- meta: short description w/ keywords for search and accessibility -->
-    <meta name="description" content="mindracer decision tree builder helps ease decision paralysis and boost problem solving — tools for mental clarity, executive dysfunction help and ADHD support.">
-    <!-- social: open graph tags for nicer sharing on social platforms (replace og:url with your live page) -->
-    <meta property="og:title" content="decision tree builder · problem solving tool">
-    <meta property="og:description" content="mindracer decision tree builder helps ease decision paralysis and boost problem solving — tools for mental clarity, executive dysfunction help and ADHD support.">
-    <meta property="og:image" content="images/mind_running.png">
-    <meta property="og:url" content="https://keelyfowler.rhody.dev/csc271_projects/product_site/decision_tree.html">
+        <!-- had to look up how to resolve error from w3's validator (the pasted error from site: Error: The character encoding was not declared.)-->
+        <meta charset="UTF-8">
+        <!-- title: decision tree builder · problem solving tool -->
+        <title>decision tree builder · problem solving tool</title>
+        <!-- meta: short description w/ keywords for search and accessibility -->
+        <meta name="description" content="mindracer decision tree builder helps ease decision paralysis and boost problem solving — tools for mental clarity, executive dysfunction help and ADHD support.">
+        <!-- social: open graph tags for nicer sharing on social platforms  -->
+        <meta property="og:title" content="decision tree builder · problem solving tool">
+        <meta property="og:description" content="mindracer decision tree builder helps ease decision paralysis and boost problem solving — tools for mental clarity, executive dysfunction help and ADHD support.">
+        <meta property="og:image" content="images/mind_running.png">
+        <meta property="og:url" content="https://keelyfowler.rhody.dev/csc271_projects/product_site/decision_tree.html">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
         <!-- link for external css stylesheet -->
-         <link href="css/main.css" type="text/css" rel="stylesheet">
+        <link href="css/main.css" type="text/css" rel="stylesheet">
         <!-- google analytics for tracking site usage / improvements -->
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5T24757TN5"></script>
@@ -24,7 +26,6 @@
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
           gtag('config', 'G-5T24757TN5');
         </script> 
     </head>
@@ -32,84 +33,135 @@
 
     <body>
 
-        <!-- made a divider for this section, relevant to all page for easy id access and css styling -->
+        <!-- div w id / css styling -->
         <div id="main_navigation">
             <!-- logo section w/ inline nav links-->
-            <img src="images/mindracer-logo-v1.png" alt="Logo" width="150">
+            <img class="btn-logo" src="images/mindracer-logo-v2.png" alt="MindRacer Logo" width="150">
             <!-- links to related web pages  -->
             <!-- home & decision builder both go to decision_tree for now since i havent made a real home page yet -->
-            <a href="decision_tree.html" class="active"><strong>Home</strong></a>  
+            <a href="decision_tree.html" ><strong>Home</strong></a>  
             <a href="mood-log.html"><strong>Mood Log</strong></a>   
             <a href="blog.html"><strong>Blog</strong></a>   
             <a href="decision_tree.html" class="active"><strong>Decision Builder</strong></a>
-           <hr> 
         </div>
 
 
+
         <div class="content-box">
-        <!-- decision tree page header -->
-        <!-- main page header (largest/h1)-->
-        <h1>MindRacer's Decision Tree Builder: A Problem Solving Tool</h1>
-
-        <!-- intro paragraph for page/tools purpose and future functionality -->
-        <p> Welcome to our decision making tool that helps you break through decision paralysis! Whether you're seeking mental clarity or need executive dysfunction support, this problem solving tool makes complex choices feel manageable. Soon you'll be able to create interactive decision trees, turning overwhelming thoughts into clear, actionable steps ! </p>
-    
-        <!-- AI's image rendering for my mindracer mascot :) -->
-        <img src="images/mind_running.png" alt="MindRacer mascot sprinting towards a decision tree builder, representing the journey to better problem solving and clearer choices" width="400">
-        <!-- side elements from wireframe , will *eventually* be interactive-->
-        <button>Add</button> &emsp; <button>Delete</button> &emsp; <button>Link</button>
-
-        <!-- future section to dsiplay the users current tree(s) -->
-        <h2>Current decision tree will eventually display here!</h2>
-        <!-- example imagery for chose activities (ie reading etc) -->
-        <img src="images/mind_reading.png" alt="MindRacer mascot reading" width="200">
-        <!-- table for decision tree -->
-        <!-- i used AI for help, i knew i wanted to set up a form with a table set up, but was getting lost on the formatting. i wanted to have better organization for my user inputs -->
-        <h2>Build Your Decision Tree</h2>
-        <form>
-            <table>
-                <tr>
-                    <th>Field</th>
-                    <th>Input</th>
-                </tr>
-                <tr>
-                    <td><label for="tree-name">Tree Name:</label></td>
-                    <td><input type="text" id="tree-name" name="tree-name" required maxlength="50"></td>
-                </tr>
-                <tr>
-                    <td><label for="description">Description:</label></td>
-                    <td><input type="text" id="description" name="description" maxlength="100"></td>
-                </tr>
-                <tr>
-                    <td>Complexity:</td>
-                    <td>
-                        <input type="radio" name="complexity" value="simple" id="simple">
-                        <label for="simple">Simple</label><br>
-                        <input type="radio" name="complexity" value="medium" id="medium">
-                        <label for="medium">Medium</label><br>
-                        <input type="radio" name="complexity" value="complex" id="complex">
-                        <label for="complex">Complex</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Options:</td>
-                    <td>
-                        <input type="checkbox" name="share" value="yes" id="share">
-                        <label for="share">Share with others</label><br>
-                        <input type="checkbox" name="notify" value="yes" id="notify">
-                        <label for="notify">Email notifications</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" value="Create Tree"></td>
-                </tr>
-            </table>
-        </form>
+            <div class="intro-section">
+                <!-- decision tree page header -->
+                <!-- main page header (largest/h1)-->
+                <div class="intro-text">
+                    <h1>MindRacer's Decision Tree:</h1>
+                    <h4>A Problem Solving Tool</h4>
+                    <!-- intro paragraph for page/tools purpose and future functionality -->
+                    <p> 
+                        Welcome to our decision making tool that helps you break through decision paralysis! 
+                        Whether you're seeking mental clarity or need executive dysfunction support, this 
+                        problem solving tool makes complex choices feel manageable. Soon you'll be able to 
+                        create interactive decision trees, turning overwhelming thoughts into clear, actionable steps! 
+                    </p>
+                </div>
+                <div class="intro-image">
+                    <!-- AI's image rendering for my mindracer mascot :) -->
+                    <img src="images/mind_running.png" alt="MindRacer mascot with tree" width="400">
+                </div>
+            </div>
             
-        <h2>Too Stressed? Let's Meditate ~</h2>
-        <!-- embedded video (line below taken directly from youtube's share anf embed feature) -->
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/y8KSid0WFwY?si=1aEbS3SGlTDef6IA" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
+            <!-- quick questions to help user pick an activity -->
+            <h3>Need help deciding what to do? Answer these questions:</h3>
+
+            <!-- form w dropdowns for energy & time -->
+            <form id="decisionTreeForm">
+                <label for="energyLevel" class="form-label">How's your energy today?</label>
+                <select id="energyLevel">
+                    <option value="">~ select here ~</option>
+                    <option value="high">high energy</option>
+                    <option value="medium">medium energy</option>
+                    <option value="low">low energy</option>
+                </select>
+                <br><br>
+                
+                <label for="timeAvailable" class="form-label">How much time do you have?</label>
+                <select id="timeAvailable">
+                    <option value="">~ select here ~</option>
+                    <option value="lots">lots of time</option>
+                    <option value="some">some time</option>
+                    <option value="little">very little time</option>
+                </select>
+                <br><br>
+                
+                <!-- button to trigger js calc -->
+                <!-- added the lil brain logo to make it cuter  -->
+            <button type="button" id="getSuggestionBtn">
+                RACE MY MIND →
+                <img src="images/mindracer-logo-v2.png" alt="" style="height: 40px; vertical-align: middle; margin-left: 8px; display: inline; filter: drop-shadow(0 0 5px rgba(100, 40, 40, 0.8));">
+            </button>
+        </form>
+
+            <!-- hidden result area, shows after button click -->
+            <div id="suggestionResult">
+                <h3>here's what you should do:</h3>
+                <p id="activitySuggestion"></p>
+                <div id="meditationSection">
+                <h4 id="meditationHeading">Too Stressed? Let's Meditate ~</h4>
+                <!-- embedded video (line below taken directly from youtube's share anf embed feature) -->
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/y8KSid0WFwY?si=1aEbS3SGlTDef6IA" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            </div>
+
+            <div class="button-group">
+                <button type="button" id="resetBtn">Start Over</button>
+                <button type="button" id="moreBtn">More Suggestions</button>
+            </div>
+
+            <br><hr><br>
+
+            <div class="two-col">
+                <div class="card-left">
+                    <!-- future section to dsiplay the users current tree(s) -->
+                    <h2 id="tree-preview-title">Interactive Tree Preview</h2>
+                    <p class="section-note">As you add steps, your tree will appear here.</p>
+                    <!-- example imagery for chose activities (ie reading etc) -->
+                    <img src="images/mind_reading.png" alt="MindRacer mascot reading" width="200">
+                    <!-- side elements from wireframe , will *eventually* be interactive-->
+                    <div class="button-group">
+                        <button type="button">Modify moods</button>
+                        <button type="button">Modify habits</button>
+                        <button type="button">Link moods & habits</button>
+                    </div>
+                </div>
+                <div class="card-right">
+                    <h2>customize your decision tree</h2>
+                    <p><em>coming soon! personalize your experience</em></p>
+
+                    <form id="treeCustomizer">
+                        <label for="tree-name">give your tree a name:</label>
+                        <input type="text" id="tree-name" placeholder="my awesome tree" maxlength="50">
+                        
+                        <label for="simple">tree complexity:</label>
+                        <input type="radio" name="complexity" value="simple" id="simple">
+                        <label for="simple">simple</label>
+                        <input type="radio" name="complexity" value="medium" id="medium">
+                        <label for="medium">medium</label>
+                        <input type="radio" name="complexity" value="complex" id="complex">
+                        <label for="complex">complex</label>
+                        
+                        <label for="mood-select">default mood:</label>
+                        <select id="mood-select">
+                            <option>energized</option>
+                            <option>chill</option>
+                            <option>focused</option>
+                        </select>
+                        
+                        <input type="checkbox" name="notifications" id="notifications">
+                        <label for="notifications">send me reminders</label>
+                        
+                        <button type="button">save preferences</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="js/decisiontree.js"></script>
     </body>
 </html>

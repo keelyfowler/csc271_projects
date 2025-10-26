@@ -1,0 +1,73 @@
+
+<!-- AI USAGE NOTE - i used LLM for writing out and brainstorming ideas, 
+i sometimes struggle narrowing down my plan /try to do too much things at once, so it was very helpful in tht regard -->
+
+script idea:
+!!! page to edit: decision_tree.html
+this script powers the “mindracer activity finder” on the decision tree page. the user answers two quick questions about energy and time, clicks the button, and the page returns a customized activity suggestion. it also gives subtle ui feedback by changing background colors and optionally revealing a short meditation video when energy is low. this keeps the page interactive with a point and click feedback like system 
+where it lives: the decision tree page (decision_tree.html), with code in js/decisiontree.js and styles in css/main.css.
+
+it: 
+- reads the user’s selections from two dropdowns
+- calculates a score and maps it to a suggestion
+- updates the page with the suggestion text and conditional ui changes
+- shows or hides a meditation section for low energy
+- unlocks follow-up action buttons so the page feels responsive
+
+
+goals:
+- make decision making feel fast / lightweight
+- give the user a clear suggestion based on energy and time
+- add gentle visual feedback with background color changes
+- reveal a meditation prompt only when it makes sense (low energy)
+- keep the dom updates simple and accessible
+- leave room for future expansion like more ideas and a  tree preview
+
+task breakdown
+- get references to all dropdowns, buttons, headings, and display areas
+- wait for the user to click “race my mind →”
+- read the selected energy and time levels
+- validate that both are chosen before continuing
+- calculate a score from those two inputs
+- match the score to a suggestion message
+- update the page visually / textually.. change background color, insert suggestion text, and show or hide the meditation section as needed
+- display the results container and re-enable any previously disabled buttons
+- if the user clicks “save preferences,” store the tree name and visually confirm the save
+
+page elements to be selected
+-getElementById:energyLevel, timeAvailable, getSuggestionBtn, suggestionResult, activitySuggestion, meditationSection, meditationHeading, resetBtn, moreBtn, treeCustomizer, tree-name
+-getElementsByClassName: form-label (labels styled or strike thru), button-group /action button , content-box 
+-getElementsByTagName: used for p (paragraphs on page) and button 
+-querySelector: used for h1 (page heading), .card-right h2 (customizer heading), and .content-box ( change background color)
+-querySelectorAll: used w/ #decisionTreeForm label (loop to style all labels), .button-group button (enable or disable real buttons), and #decisionTreeForm select (optional batch reset or focus)
+
+flow
+page loads
+   -  get references to dropdowns, buttons, and result containers
+   - disable secondary buttons that are hidden until an event
+
+user clicks “race my mind →”
+   - check if both energy and time are selected
+      - if not, show alert and stop
+   - calculate total score from both inputs
+   - choose a matching activity suggestion
+   - update background color based on energy
+   - display suggestion text in result area
+   - if energy is low
+      - show meditation section and video
+      - update meditation heading
+      - else hide meditation section
+   - show result container
+   - enable action buttons
+
+user clicks “save preferences”
+   - read tree name input
+   - update customizer heading
+   - change right-card background to confirm save
+
+features to be added eventuallly
+   - if reset clicked
+      - clear inputs and hide result
+      - disable buttons again
+   - if more suggestions clicked
+      - cycle through alternate suggestions for same score
