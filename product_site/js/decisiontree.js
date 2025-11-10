@@ -1,4 +1,5 @@
 // keely fowler - hw 8, oct.25,25
+// File: js/mindracer.js
 //  decision tree script for activity suggestions
 
 // get elements
