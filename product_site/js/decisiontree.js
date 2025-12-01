@@ -85,7 +85,7 @@ function savePreferences() {
 
 
 // get all action buttons and disable them initially
-var actionButtons = document.getElementsByClassName('button-group');
+var actionButtons = document.getElementsByClassName('action-btn');
 for (var i = 0; i < actionButtons.length; i++) {
     actionButtons[i].style.opacity = '0.3';
     actionButtons[i].disabled = true;
@@ -173,10 +173,10 @@ resetBtn.addEventListener('click', function() {
     document.querySelector('.content-box').style.backgroundColor = '#dfe6cf';
 
     // remove label strikethroughs
-    var formLabels = document.getElementsByClassName('form-label');
-    for (var i = 0; i < formLabels.length; i++) {
-        formLabels[i].style.textDecoration = 'none';
-        formLabels[i].style.opacity = '1';
+    var allLabelsList = document.querySelectorAll('#decisionTreeForm label');
+    for (var i = 0; i < allLabelsList.length; i++) {
+        allLabelsList[i].style.textDecoration = 'none';
+        allLabelsList[i].style.opacity = '1';
     }
 
     // disable action buttons again
@@ -184,8 +184,19 @@ resetBtn.addEventListener('click', function() {
     var allButtons = document.querySelectorAll('.button-group button');
     
     for (var i = 0; i < allButtons.length; i++) {
-        allButtons[i].disabled = true;
-        allButtons[i].style.opacity = '0.3';
+        if (allButtons[i].id === "resetBtn") {
+            // reset stays active
+            allButtons[i].disabled = false;
+            allButtons[i].style.opacity = "1";
+        } else if (allButtons[i].id === "moreBtn") {
+            // more suggestions stays active AND unblurred
+            allButtons[i].disabled = false;
+            allButtons[i].style.opacity = "1";
+        } else {
+            // anything else gets disabled (if you ever add more buttons)
+            allButtons[i].disabled = true;
+            allButtons[i].style.opacity = "0.3";
+        }
     }
 });
 
