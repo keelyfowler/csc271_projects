@@ -74,7 +74,7 @@
             <!-- form w dropdowns for energy & time -->
             <form id="decisionTreeForm">
                 <label for="energyLevel" class="form-label">How's your energy today?</label>
-                <select id="energyLevel">
+                <select id="energyLevel" name="energyLevel">
                     <option value="">~ select here ~</option>
                     <option value="high">high energy</option>
                     <option value="medium">medium energy</option>
@@ -83,7 +83,7 @@
                 <br><br>
                 
                 <label for="timeAvailable" class="form-label">How much time do you have?</label>
-                <select id="timeAvailable">
+                <select id="timeAvailable" name="timeAvailable">
                     <option value="">~ select here ~</option>
                     <option value="lots">lots of time</option>
                     <option value="some">some time</option>
@@ -142,19 +142,19 @@
                     <p><em>coming soon! personalize your experience</em></p>
 
                     <form id="treeCustomizer">
-                        <label for="tree-name">give your tree a name:</label>
+                        <label for="tree-name" class="form-label">give your tree a name:</label>
                         <input type="text" id="tree-name" placeholder="my awesome tree" maxlength="50">
                         
-                        <label for="simple">tree complexity:</label>
+                        <label for="simple" class="form-label">tree complexity:</label>
                         <input type="radio" name="complexity" value="simple" id="simple">
-                        <label for="simple">simple</label>
+                        <label for="simple" class="form-label">simple</label>
                         <input type="radio" name="complexity" value="medium" id="medium">
-                        <label for="medium">medium</label>
+                        <label for="medium" class="form-label">medium</label>
                         <input type="radio" name="complexity" value="complex" id="complex">
-                        <label for="complex">complex</label>
+                        <label for="complex" class="form-label">complex</label>
                         
                         <label for="mood-select">default mood:</label>
-                        <select id="mood-select">
+                        <select id="mood-select" name="mood-select">
                             <option>energized</option>
                             <option>chill</option>
                             <option>focused</option>

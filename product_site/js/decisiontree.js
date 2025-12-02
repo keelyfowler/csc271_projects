@@ -1,5 +1,6 @@
-// keely fowler - hw 9, nov.1,25
-// keely fowler - assignment 9, 12/1/25
+// keely fowler - hw 10, nov.9,25
+// AI disclaimer - had help debugging and figuring out how to build an algorithm to approach solving diff problems & 
+// adding features that were difficult for me to break down into modular probs 
 // decision tree script for mindracer activity suggestions
 // uses conditionals, loops, and logical operators to suggest activities based on user's energy & time
 
@@ -85,6 +86,49 @@ var allActivities = [
 var moreSuggestionsSection = document.getElementById('moreSuggestionsSection');
 var suggestionsList = document.getElementById('suggestionsList');
 
+// checks if user has selected both energy && time options
+// returns true if both are selected, false otherwise
+function validateSelections() {
+    var energy = energySelect.value;
+    var time = timeSelect.value;
+    
+    if (energy === '' || time === '') {
+        return false;
+    }
+    return true;
+}
+
+// updates background color of element based on energy level
+// parameters: energy (string) - user's energy level, element (dom node) -> element to update
+function updateUIColors(energy, element) {
+    if (energy === 'high') {
+        element.style.backgroundColor = '#c9cd9eff';
+    } else if (energy === 'medium') {
+        element.style.backgroundColor = '#d4dac0';
+    } else if (energy === 'low') {
+        element.style.backgroundColor = '#bccbc8ff';
+    }
+}
+
+// filters activities array per energy, time
+//  optionally excludes an activity
+// parameters: energy (string), time (string), excludeActivity (string, optional)
+// returns: array of matching activity strings
+function filterActivities(energy, time, excludeActivity) {
+    var matchingActivities = [];
+    
+    for (var i = 0; i < allActivities.length; i++) {
+        var activity = allActivities[i];
+        var matches = activity.energy === energy && activity.time === time;
+        var notExcluded = !excludeActivity || activity.activity !== excludeActivity;
+        
+        if (matches && notExcluded) {
+            matchingActivities.push(activity.activity);
+        }
+    }
+    
+    return matchingActivities;
+}
 // function to calculate activity score
 function calculateScore(energy, time) {
     var energyScore = 0;
@@ -115,19 +159,13 @@ function calculateScore(energy, time) {
 
 // filters activities matching user's energy and time selection
 // returns a random activity from matching options
-// uses for loop to build matching array
-// function to get activity suggestion based on score
+// uses filterActivities helper function
 function getSuggestion(score) {
     var energy = energySelect.value;
     var time = timeSelect.value;
     
-    // filter activities that match energy and time
-    var matchingActivities = [];
-    for (var i = 0; i < allActivities.length; i++) {
-        if (allActivities[i].energy === energy && allActivities[i].time === time) {
-            matchingActivities.push(allActivities[i].activity);
-        }
-    }
+    // use helper function to filter activities
+    var matchingActivities = filterActivities(energy, time);
     
     // pick a random activity from matches
     if (matchingActivities.length > 0) {
@@ -154,6 +192,49 @@ function savePreferences() {
     rightCard.style.backgroundColor = '#d4e8d4';
 }
 
+// resets the entire form and hides all result sections
+// basic function with no parameters or return value
+function resetForm() {
+
+    // reset the form fields
+    document.getElementById('decisionTreeForm').reset();
+
+    // hide results & meditation & more suggestions
+    resultDiv.style.display = 'none';
+    meditationSection.style.display = 'none';
+    moreSuggestionsSection.style.display = 'none';
+
+    // clear suggestion text
+    suggestionText.textContent = '';
+
+    // restore heading/bg
+    firstHeading.textContent = "MindRacer's Decision Tree:";
+    document.querySelector('.content-box').style.backgroundColor = '#dfe6cf';
+
+    // remove label strikethroughs
+    var allLabelsList = document.querySelectorAll('#decisionTreeForm label');
+    for (var i = 0; i < allLabelsList.length; i++) {
+        allLabelsList[i].style.textDecoration = 'none';
+        allLabelsList[i].style.opacity = '1';
+    }
+
+    // disable action buttons again
+    var allButtons = document.querySelectorAll('.button-group button');
+    
+    for (var i = 0; i < allButtons.length; i++) {
+        if (allButtons[i].id === "resetBtn") {
+            allButtons[i].disabled = false;
+            allButtons[i].style.opacity = "1";
+        } else if (allButtons[i].id === "moreBtn") {
+            allButtons[i].disabled = false;
+            allButtons[i].style.opacity = "1";
+        } else {
+            allButtons[i].disabled = true;
+            allButtons[i].style.opacity = "0.3";
+        }
+    }
+}
+
 // displays additional activity suggestions when "more suggestions" button is clicked
 // uses while loop with logical operators (&& to check energy AND time AND not current suggestion)
 // loops through nodelist with .length-> style list items
@@ -161,9 +242,10 @@ function savePreferences() {
 function showMoreSuggestions() {
     var energy = energySelect.value;
     var time = timeSelect.value;
+    var currentSuggestion = suggestionText.textContent;
     
     // check if user has made selections
-    if (energy === '' || time === '') {
+    if (!validateSelections()) {
         alert('please get a suggestion first!');
         return;
     }
@@ -174,16 +256,8 @@ function showMoreSuggestions() {
     // clear last list
     suggestionsList.innerHTML = '';
     
-    //  while loop to filter activities 
-    var matchingActivities = [];
-    var i = 0;
-    while (i < allActivities.length) {
-        // logical op check if activity matches energy && time && isnt current one 
-        if (allActivities[i].energy === energy && allActivities[i].time === time && allActivities[i].activity !== currentSuggestion) {
-            matchingActivities.push(allActivities[i].activity);
-        }
-        i++;
-    }
+    // use helper function to filter activities, excluding current one
+    var matchingActivities = filterActivities(energy, time, currentSuggestion);
     
     // use for loop to create list items
     for (var j = 0; j < matchingActivities.length; j++) {
@@ -195,7 +269,7 @@ function showMoreSuggestions() {
     // show the section
     moreSuggestionsSection.style.display = 'block';
     
-    // use querySelectorAll and loop through nodelist 
+    // use querySelectorAll and loop through nodelist
     var allListItems = suggestionsList.querySelectorAll('li');
     if (allListItems.length > 0) {
         for (var k = 0; k < allListItems.length; k++) {
@@ -222,7 +296,7 @@ getSuggestionBtn.addEventListener('click', function() {
     var time = timeSelect.value;
     
     // check if both are selected
-    if (energy === '' || time === '') {
+    if (!validateSelections()) {
         alert('please select both options!');
         return;
     }
@@ -230,15 +304,9 @@ getSuggestionBtn.addEventListener('click', function() {
     // calculate score
     var score = calculateScore(energy, time);
     
-    // change background based on energy level
+    // use helper function to update background color
     var contentBox = document.querySelector('.content-box');
-    if (energy === 'high') {
-        contentBox.style.backgroundColor = '#c9cd9eff';
-    } else if (energy === 'medium') {
-        contentBox.style.backgroundColor = '#d4dac0';
-    } else if (energy === 'low') {
-        contentBox.style.backgroundColor = '#bccbc8ff';
-    }
+    updateUIColors(energy, contentBox);
 
     // get suggestion
     var suggestion = getSuggestion(score);
@@ -280,49 +348,7 @@ savePrefsBtn.addEventListener('click', savePreferences);
 // reset form
 var resetBtn = document.getElementById('resetBtn');
 
-resetBtn.addEventListener('click', function() {
-    // reset the form fields, looked this up 
-    document.getElementById('decisionTreeForm').reset();
-
-    // hide results & meditation
-    resultDiv.style.display = 'none';
-    meditationSection.style.display = 'none';// add this line inside your resetBtn click function
-    moreSuggestionsSection.style.display = 'none';
-
-    // clear suggest. txt
-    suggestionText.textContent = '';
-
-    // restore heading/bg
-    firstHeading.textContent = "MindRacer's Decision Tree:";
-    document.querySelector('.content-box').style.backgroundColor = '#dfe6cf';
-
-    // remove label strikethroughs
-    var allLabelsList = document.querySelectorAll('#decisionTreeForm label');
-    for (var i = 0; i < allLabelsList.length; i++) {
-        allLabelsList[i].style.textDecoration = 'none';
-        allLabelsList[i].style.opacity = '1';
-    }
-
-    // disable action buttons again
-
-    var allButtons = document.querySelectorAll('.button-group button');
-    
-    for (var i = 0; i < allButtons.length; i++) {
-        if (allButtons[i].id === "resetBtn") {
-            // reset stays active
-            allButtons[i].disabled = false;
-            allButtons[i].style.opacity = "1";
-        } else if (allButtons[i].id === "moreBtn") {
-            // more suggestions stays active AND unblurred
-            allButtons[i].disabled = false;
-            allButtons[i].style.opacity = "1";
-        } else {
-            // anything else gets disabled (if you ever add more buttons)
-            allButtons[i].disabled = true;
-            allButtons[i].style.opacity = "0.3";
-        }
-    }
-});
+resetBtn.addEventListener('click', resetForm);
 
 // event listener for more suggestions button
 var moreBtn = document.getElementById('moreBtn');
