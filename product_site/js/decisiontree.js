@@ -1,6 +1,7 @@
-// keely fowler - hw 8, oct.25,25
-// File: js/mindracer.js
-//  decision tree script for activity suggestions
+// keely fowler - hw 9, nov.1,25
+// keely fowler - assignment 9, 12/1/25
+// decision tree script for mindracer activity suggestions
+// uses conditionals, loops, and logical operators to suggest activities based on user's energy & time
 
 // get elements
 var energySelect = document.getElementById('energyLevel');
@@ -20,6 +21,69 @@ var customizeHeading = document.querySelector('.card-right h2');
 // meditation section elements
 var meditationSection = document.getElementById('meditationSection');
 var meditationHeading = document.getElementById('meditationHeading');
+
+// array storing all possible activities with their energy and time requirements
+// so site can filter / display suggestions re: user input
+// array of all possible activities with their requirements
+var allActivities = [
+
+    // high energy + lots of time
+
+    {activity: 'go for a run or hit the gym! this is a productive way to keep your energy up', energy: 'high', time: 'lots'},
+    {activity: 'try a new workout class or go rock climbing', energy: 'high', time: 'lots'},
+    {activity: 'go for a long bike ride or hike a challenging trail', energy: 'high', time: 'lots'},
+    
+    // high energy + some time
+
+    {activity: 'try a creative project or go for a nice walk outside!', energy: 'high', time: 'some'},
+    {activity: 'do some gardening or organize a space in your home', energy: 'high', time: 'some'},
+    {activity: 'cook a new recipe or play an active game', energy: 'high', time: 'some'},
+    
+    // high energy + little time
+
+    {activity: 'take a short walk or do some light stretching', energy: 'high', time: 'little'},
+    {activity: 'do a quick workout video or dance to your favorite song', energy: 'high', time: 'little'},
+    {activity: 'tidy up your space or do jumping jacks', energy: 'high', time: 'little'},
+    
+    // medium energy + lots of time
+
+    {activity: 'try a creative project or go for a nice walk outside!', energy: 'medium', time: 'lots'},
+    {activity: 'read a book or watch a documentary', energy: 'medium', time: 'lots'},
+    {activity: 'start a craft project or reorganize your room', energy: 'medium', time: 'lots'},
+    
+    // medium energy + some time
+
+    {activity: 'journaling or listening to music sounds perfect for you right now', energy: 'medium', time: 'some'},
+    {activity: 'do some coloring or doodling', energy: 'medium', time: 'some'},
+    {activity: 'call a friend or take a leisurely walk', energy: 'medium', time: 'some'},
+    
+    // medium energy /little time
+
+    {activity: 'take a short walk or do some light stretching', energy: 'medium', time: 'little'},
+    {activity: 'make yourself tea and sit outside', energy: 'medium', time: 'little'},
+    {activity: 'listen to a favorite song or quick meditation', energy: 'medium', time: 'little'},
+    
+    // low energy/lots of time
+
+    {activity: 'rest and meditate. give yourself grace and just chill today', energy: 'low', time: 'lots'},
+    {activity: 'watch your comfort show or movie and relax', energy: 'low', time: 'lots'},
+    {activity: 'take a long nap or do gentle yoga', energy: 'low', time: 'lots'},
+    
+    // low energy + some time
+
+    {activity: 'rest and meditate. give yourself grace and just chill today', energy: 'low', time: 'some'},
+    {activity: 'lay down and listen to calming music', energy: 'low', time: 'some'},
+    {activity: 'do some light reading or scroll through calming content', energy: 'low', time: 'some'},
+    
+    // low energy + little time
+
+    {activity: 'rest and meditate. give yourself grace and just chill today', energy: 'low', time: 'little'},
+    {activity: 'close your eyes and take some deep breaths', energy: 'low', time: 'little'},
+    {activity: 'make yourself comfortable and rest for a few minutes', energy: 'low', time: 'little'}
+];
+
+var moreSuggestionsSection = document.getElementById('moreSuggestionsSection');
+var suggestionsList = document.getElementById('suggestionsList');
 
 // function to calculate activity score
 function calculateScore(energy, time) {
@@ -49,23 +113,29 @@ function calculateScore(energy, time) {
     return totalScore;
 }
 
+// filters activities matching user's energy and time selection
+// returns a random activity from matching options
+// uses for loop to build matching array
 // function to get activity suggestion based on score
 function getSuggestion(score) {
-    var activity = '';
+    var energy = energySelect.value;
+    var time = timeSelect.value;
     
-    if (score === 4) {
-        activity = 'go for a run or hit the gym! this is a productive way to keep your energy up';
-    } else if (score === 3) {
-        activity = 'try a creative project or go for a nice walk outside!';
-    } else if (score === 2) {
-        activity = 'journaling or listening to music sounds perfect for you right now';
-    } else if (score === 1) {
-        activity = 'take a short walk or do some light stretching';
-    } else {
-        activity = 'rest and meditate. give yourself grace and just chill today';
+    // filter activities that match energy and time
+    var matchingActivities = [];
+    for (var i = 0; i < allActivities.length; i++) {
+        if (allActivities[i].energy === energy && allActivities[i].time === time) {
+            matchingActivities.push(allActivities[i].activity);
+        }
     }
     
-    return activity;
+    // pick a random activity from matches
+    if (matchingActivities.length > 0) {
+        var randomIndex = Math.floor(Math.random() * matchingActivities.length);
+        return matchingActivities[randomIndex];
+    }
+    
+    return 'take a moment to breathe and reset';
 }
 
 // function to save preferences
@@ -83,6 +153,58 @@ function savePreferences() {
     var rightCard = document.querySelector('.card-right');
     rightCard.style.backgroundColor = '#d4e8d4';
 }
+
+// displays additional activity suggestions when "more suggestions" button is clicked
+// uses while loop with logical operators (&& to check energy AND time AND not current suggestion)
+// loops through nodelist with .length-> style list items
+// function to show more suggestions based on users energy / time
+function showMoreSuggestions() {
+    var energy = energySelect.value;
+    var time = timeSelect.value;
+    
+    // check if user has made selections
+    if (energy === '' || time === '') {
+        alert('please get a suggestion first!');
+        return;
+    }
+    
+    // show the current suggestion showing
+    var currentSuggestion = suggestionText.textContent;
+    
+    // clear last list
+    suggestionsList.innerHTML = '';
+    
+    //  while loop to filter activities 
+    var matchingActivities = [];
+    var i = 0;
+    while (i < allActivities.length) {
+        // logical op check if activity matches energy && time && isnt current one 
+        if (allActivities[i].energy === energy && allActivities[i].time === time && allActivities[i].activity !== currentSuggestion) {
+            matchingActivities.push(allActivities[i].activity);
+        }
+        i++;
+    }
+    
+    // use for loop to create list items
+    for (var j = 0; j < matchingActivities.length; j++) {
+        var listItem = document.createElement('li');
+        listItem.textContent = matchingActivities[j];
+        suggestionsList.appendChild(listItem);
+    }
+    
+    // show the section
+    moreSuggestionsSection.style.display = 'block';
+    
+    // use querySelectorAll and loop through nodelist 
+    var allListItems = suggestionsList.querySelectorAll('li');
+    if (allListItems.length > 0) {
+        for (var k = 0; k < allListItems.length; k++) {
+            allListItems[k].style.color = '#914040';
+            allListItems[k].style.marginBottom = '10px';
+        }
+    }
+}
+
 
 
 // get all action buttons and disable them initially
@@ -164,7 +286,8 @@ resetBtn.addEventListener('click', function() {
 
     // hide results & meditation
     resultDiv.style.display = 'none';
-    meditationSection.style.display = 'none';
+    meditationSection.style.display = 'none';// add this line inside your resetBtn click function
+    moreSuggestionsSection.style.display = 'none';
 
     // clear suggest. txt
     suggestionText.textContent = '';
@@ -201,3 +324,6 @@ resetBtn.addEventListener('click', function() {
     }
 });
 
+// event listener for more suggestions button
+var moreBtn = document.getElementById('moreBtn');
+moreBtn.addEventListener('click', showMoreSuggestions);
