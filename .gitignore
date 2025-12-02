@@ -1,0 +1,6 @@
+# ignore copied labs from someone else's repo
+Labs/lab8_uri_mdb/
+Labs/lab9-FurEverHome/
+
+# ignore Mac junk files
+.DS_Store
