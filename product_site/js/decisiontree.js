@@ -26,61 +26,65 @@ var meditationHeading = document.getElementById('meditationHeading');
 // array storing all possible activities with their energy and time requirements
 // so site can filter / display suggestions re: user input
 // array of all possible activities with their requirements
+// hw 12  object constructor
+// constructor function to create activity objects
+function Activity(activity, energy, time, category) {
+    this.activity = activity;
+    this.energy = energy;
+    this.time = time;
+    this.category = category;
+    
+    // method: returns formatted display string
+    this.display = function() {
+        return this.activity + ' (' + this.category + ' activity)';
+    };
+    
+    // method: checks if activity matches user's energy and time
+    this.matches = function(userEnergy, userTime) {
+        return this.energy === userEnergy && this.time === userTime;
+    };
+}
+
+// create activity object instances
 var allActivities = [
-
-    // high energy + lots of time
-
-    {activity: 'go for a run or hit the gym! this is a productive way to keep your energy up', energy: 'high', time: 'lots'},
-    {activity: 'try a new workout class or go rock climbing', energy: 'high', time: 'lots'},
-    {activity: 'go for a long bike ride or hike a challenging trail', energy: 'high', time: 'lots'},
+    // high energy activities
+    new Activity('go for a run or hit the gym! this is a productive way to keep your energy up', 'high', 'lots', 'physical'),
+    new Activity('try a new workout class or go rock climbing', 'high', 'lots', 'physical'),
+    new Activity('go for a long bike ride or hike a challenging trail', 'high', 'lots', 'physical'),
     
-    // high energy + some time
-
-    {activity: 'try a creative project or go for a nice walk outside!', energy: 'high', time: 'some'},
-    {activity: 'do some gardening or organize a space in your home', energy: 'high', time: 'some'},
-    {activity: 'cook a new recipe or play an active game', energy: 'high', time: 'some'},
+    new Activity('try a creative project or go for a nice walk outside!', 'high', 'some', 'creative'),
+    new Activity('do some gardening or organize a space in your home', 'high', 'some', 'productive'),
+    new Activity('cook a new recipe or play an active game', 'high', 'some', 'creative'),
     
-    // high energy + little time
-
-    {activity: 'take a short walk or do some light stretching', energy: 'high', time: 'little'},
-    {activity: 'do a quick workout video or dance to your favorite song', energy: 'high', time: 'little'},
-    {activity: 'tidy up your space or do jumping jacks', energy: 'high', time: 'little'},
+    new Activity('take a short walk or do some light stretching', 'high', 'little', 'physical'),
+    new Activity('do a quick workout video or dance to your favorite song', 'high', 'little', 'physical'),
+    new Activity('tidy up your space or do jumping jacks', 'high', 'little', 'productive'),
     
-    // medium energy + lots of time
-
-    {activity: 'try a creative project or go for a nice walk outside!', energy: 'medium', time: 'lots'},
-    {activity: 'read a book or watch a documentary', energy: 'medium', time: 'lots'},
-    {activity: 'start a craft project or reorganize your room', energy: 'medium', time: 'lots'},
+    // medium energy activities
+    new Activity('try a creative project or go for a nice walk outside!', 'medium', 'lots', 'creative'),
+    new Activity('read a book or watch a documentary', 'medium', 'lots', 'mental'),
+    new Activity('start a craft project or reorganize your room', 'medium', 'lots', 'creative'),
     
-    // medium energy + some time
-
-    {activity: 'journaling or listening to music sounds perfect for you right now', energy: 'medium', time: 'some'},
-    {activity: 'do some coloring or doodling', energy: 'medium', time: 'some'},
-    {activity: 'call a friend or take a leisurely walk', energy: 'medium', time: 'some'},
+    new Activity('journaling or listening to music sounds perfect for you right now', 'medium', 'some', 'mental'),
+    new Activity('do some coloring or doodling', 'medium', 'some', 'creative'),
+    new Activity('call a friend or take a leisurely walk', 'medium', 'some', 'social'),
     
-    // medium energy /little time
-
-    {activity: 'take a short walk or do some light stretching', energy: 'medium', time: 'little'},
-    {activity: 'make yourself tea and sit outside', energy: 'medium', time: 'little'},
-    {activity: 'listen to a favorite song or quick meditation', energy: 'medium', time: 'little'},
+    new Activity('take a short walk or do some light stretching', 'medium', 'little', 'physical'),
+    new Activity('make yourself tea and sit outside', 'medium', 'little', 'rest'),
+    new Activity('listen to a favorite song or quick meditation', 'medium', 'little', 'rest'),
     
-    // low energy/lots of time
-
-    {activity: 'rest and meditate. give yourself grace and just chill today', energy: 'low', time: 'lots'},
-    {activity: 'watch your comfort show or movie and relax', energy: 'low', time: 'lots'},
-    {activity: 'take a long nap or do gentle yoga', energy: 'low', time: 'lots'},
+    // low energy activities
+    new Activity('rest and meditate. give yourself grace and just chill today', 'low', 'lots', 'rest'),
+    new Activity('watch your comfort show or movie and relax', 'low', 'lots', 'rest'),
+    new Activity('take a long nap or do gentle yoga', 'low', 'lots', 'rest'),
     
-    // low energy + some time
-
-    {activity: 'rest and meditate. give yourself grace and just chill today', energy: 'low', time: 'some'},
-    {activity: 'lay down and listen to calming music', energy: 'low', time: 'some'},
-    {activity: 'do some light reading or scroll through calming content', energy: 'low', time: 'some'},
+    new Activity('rest and meditate. give yourself grace and just chill today', 'low', 'some', 'rest'),
+    new Activity('lay down and listen to calming music', 'low', 'some', 'rest'),
+    new Activity('do some light reading or scroll through calming content', 'low', 'some', 'mental'),
     
-    // low energy + little time
-
-    {activity: 'rest and meditate. give yourself grace and just chill today', energy: 'low', time: 'little'},
-    {activity: 'close your eyes and take some deep breaths', energy: 'low', time: 'little'},
-    {activity: 'make yourself comfortable and rest for a few minutes', energy: 'low', time: 'little'}
+    new Activity('rest and meditate. give yourself grace and just chill today', 'low', 'little', 'rest'),
+    new Activity('close your eyes and take some deep breaths', 'low', 'little', 'rest'),
+    new Activity('make yourself comfortable and rest for a few minutes', 'low', 'little', 'rest')
 ];
 
 var moreSuggestionsSection = document.getElementById('moreSuggestionsSection');
@@ -289,9 +293,12 @@ for (var i = 0; i < actionButtons.length; i++) {
 }
 
 // button click event for getting suggestion
-getSuggestionBtn.addEventListener('click', function() {
+var decisionForm = document.getElementById('decisionTreeForm');
+decisionForm.addEventListener('submit', function(event) {
+    event.preventDefault(); //had to look this up, page kept reloading
     firstHeading.textContent = 'MindRacer Activity Finder';
 
+   
     var energy = energySelect.value;
     var time = timeSelect.value;
     
@@ -394,4 +401,39 @@ timeSelect.addEventListener('blur', function() {
     } else {
         formFeedback.style.display = 'none';
     }
+});
+
+
+// assignment 12: display activities by category using object methods
+var categorySelect = document.getElementById('categorySelect');
+var categoryActivities = document.getElementById('categoryActivities');
+
+categorySelect.addEventListener('change', function() {
+    var selectedCategory = categorySelect.value;
+    
+    // clear previous activities
+    categoryActivities.innerHTML = '';
+    
+    if (selectedCategory === '' ) {
+        return;
+    }
+    
+    // filter activities by category and display using object methods
+    categoryActivities.innerHTML = '<h4>' + selectedCategory + ' activities:</h4>';
+    
+    var count = 0;
+    for ( var i = 0; i < allActivities.length; i++ ) {
+
+        // access object property
+        if (allActivities[i].category === selectedCategory) {
+            // call display() method to show formatted activity
+            var activityText = allActivities[i].display();
+
+            categoryActivities.innerHTML += '<p style="color: #4B5320;">• ' + activityText + '</p>';
+            count++;
+        }
+    }
+    
+    
+    categoryActivities.innerHTML += '<p style="font-style: italic; color: #914040;">found ' + count + ' ' + selectedCategory + ' activities</p>';
 });

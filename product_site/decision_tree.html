@@ -93,14 +93,14 @@
                 
                 <!-- button to trigger js calc -->
                 <!-- added the lil brain logo to make it cuter  -->
-            <button type="button" id="getSuggestionBtn">
+            <button type="submit" id="getSuggestionBtn">
                 RACE MY MIND →
                 <img src="images/mindracer-logo-v2.png" alt="" style="height: 40px; vertical-align: middle; margin-left: 8px; display: inline; filter: drop-shadow(0 0 5px rgba(100, 40, 40, 0.8));">
             </button>
-        </form>
-        <!-- new:hw11 form feedback -->
-        <!-- form feedback messages -->
-        <div id="formFeedback" style="margin-top: 10px; font-size: 14px; display: none;"></div>
+            </form>
+            <!-- new:hw11 form feedback -->
+            <!-- form feedback messages -->
+            <div id="formFeedback" style="margin-top: 10px; font-size: 14px; display: none;"></div>
 
             <!-- hidden result area, shows after button click -->
             <div id="suggestionResult">
@@ -144,32 +144,24 @@
                     <h2>customize your decision tree</h2>
                     <p><em>coming soon! personalize your experience</em></p>
 
-                    <form id="treeCustomizer">
-                        <label for="tree-name" class="form-label">give your tree a name:</label>
-                        <input type="text" id="tree-name" placeholder="my awesome tree" maxlength="50">
-                        
-                        <label for="simple" class="form-label">tree complexity:</label>
-                        <input type="radio" name="complexity" value="simple" id="simple">
-                        <label for="simple" class="form-label">simple</label>
-                        <input type="radio" name="complexity" value="medium" id="medium">
-                        <label for="medium" class="form-label">medium</label>
-                        <input type="radio" name="complexity" value="complex" id="complex">
-                        <label for="complex" class="form-label">complex</label>
-                        
-                        <label for="mood-select">default mood:</label>
-                        <select id="mood-select" name="mood-select">
-                            <option>energized</option>
-                            <option>chill</option>
-                            <option>focused</option>
-                        </select>
-                        
-                        <input type="checkbox" name="notifications" id="notifications">
-                        <label for="notifications">send me reminders</label>
-                        
-                        <button type="button">save preferences</button>
-                    </form>
+                    <h2>browse activities by category</h2>
+                    <p><em>explore different types of activities</em></p>
+
+                    <label for="categorySelect">choose a category:</label>
+                    <select id="categorySelect" name="categorySelect">
+                        <option value="">~ select category ~</option>
+                        <option value="physical">physical</option>
+                        <option value="mental">mental</option>
+                        <option value="creative">creative</option>
+                        <option value="rest">rest</option>
+                        <option value="productive">productive</option>
+                        <option value="social">social</option>
+                    </select>
+
+                    <div id="categoryActivities" style="margin-top: 20px;"></div>
                 </div>
             </div>
+
         </div>
         <script src="js/decisiontree.js"></script>
     </body>
