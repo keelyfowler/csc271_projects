@@ -353,3 +353,45 @@ resetBtn.addEventListener('click', resetForm);
 // event listener for more suggestions button
 var moreBtn = document.getElementById('moreBtn');
 moreBtn.addEventListener('click', showMoreSuggestions);
+
+
+// assignment 11: form event handling
+
+// provides current feedback when users interact w/ dropdowns
+// focus events show helpful hints & blur events validate selections
+// get form feedback element
+var formFeedback = document.getElementById('formFeedback');
+
+// focus event - show helpful message when user clicks in dropdown
+energySelect.addEventListener('focus', function() {
+    formFeedback.textContent = 'select your current energy level to get personalized suggestions';
+    formFeedback.style.color = '#4B5320';
+    formFeedback.style.display = 'block';
+});
+
+timeSelect.addEventListener('focus', function() {
+    formFeedback.textContent = 'select how much time you have available';
+    formFeedback.style.color = '#4B5320';
+    formFeedback.style.display = 'block';
+});
+
+// blur event - check if valid when user leaves dropdown
+energySelect.addEventListener('blur', function() {
+    if (energySelect.value === '') {
+        formFeedback.textContent = 'please select an energy level before continuing';
+        formFeedback.style.color = '#914040';
+        formFeedback.style.display = 'block';
+    } else {
+        formFeedback.style.display = 'none';
+    }
+});
+
+timeSelect.addEventListener('blur', function() {
+    if (timeSelect.value === '') {
+        formFeedback.textContent = 'please select how much time you have';
+        formFeedback.style.color = '#914040';
+        formFeedback.style.display = 'block';
+    } else {
+        formFeedback.style.display = 'none';
+    }
+});
