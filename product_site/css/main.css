@@ -200,17 +200,17 @@ label, select, input, button {
 .button-group button {
     font-size: 18px;
     padding: 10px 24px;
-    transition: background-color 0.3s, transform 0.2s; /* used help w AI for this, to make the buttons not look like saltine crackers*/
+    transition: background-color 0.3s, transform 0.2s; 
 }
 
 .button-group button:hover {
-    transform: scale(1.05);         /* used AI for this to make buttons more interesting tho they dont yet have a purpose,  hover lift */
+    transform: scale(1.05);         /* looked this up, button lifts on hover */
 }
 
 .button-group button:hover,
 #getSuggestionBtn:hover,
 #treeCustomizer button:hover {
-    background-color: #ab6262;
+    background-color: #ab6262;    /* darker on hover */
 }
 
 #getSuggestionBtn {
