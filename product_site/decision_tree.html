@@ -15,7 +15,7 @@
         <meta property="og:description" content="mindracer decision tree builder helps ease decision paralysis and boost problem solving — tools for mental clarity, executive dysfunction help and ADHD support.">
         <meta property="og:image" content="images/mind_running.png">
         <meta property="og:url" content="https://keelyfowler.rhody.dev/csc271_projects/product_site/decision_tree.html">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
         <!-- link for external css stylesheet -->
         <link href="css/main.css" type="text/css" rel="stylesheet">
@@ -34,115 +34,112 @@
     <body>
 
         <!-- div w id / css styling -->
-        <div id="main_navigation">
+        <div id="nav-bar">
             <!-- logo section w/ inline nav links-->
-            <img class="btn-logo" src="images/mindracer-logo-v2.png" alt="MindRacer Logo" width="150">
+             <!-- class="btn-logo" -->
+            <img src="images/mindracer-logo-v2.png" alt="MindRacer Logo">
             <!-- links to related web pages  -->
             <!-- home & decision builder both go to decision_tree for now since i havent made a real home page yet -->
-            <a href="decision_tree.html" ><strong>Home</strong></a>  
+            <a href="decision_tree.html" class="active"><strong>Home</strong></a>  
+            <a href="decision_tree.html" class="active"><strong>Decision Builder</strong></a>
             <a href="mood-log.html"><strong>Mood Log</strong></a>   
             <a href="blog.html"><strong>Blog</strong></a>   
-            <a href="decision_tree.html" class="active"><strong>Decision Builder</strong></a>
         </div>
 
 
 
         <div class="content-box">
-            <div class="intro-section">
+            <div class="card split">
                 <!-- decision tree page header -->
                 <!-- main page header (largest/h1)-->
-                <div class="intro-text">
+                <div class="split-content">
                     <h1>MindRacer's Decision Tree:</h1>
                     <h4>A Problem Solving Tool</h4>
                     <!-- intro paragraph for page/tools purpose and future functionality -->
-                    <p> 
-                        Welcome to our decision making tool that helps you break through decision paralysis! 
+                    <p> Welcome to our decision making tool that helps you break through decision paralysis! 
                         Whether you're seeking mental clarity or need executive dysfunction support, this 
                         problem solving tool makes complex choices feel manageable. Soon you'll be able to 
-                        create interactive decision trees, turning overwhelming thoughts into clear, actionable steps! 
-                    </p>
+                        create interactive decision trees, turning overwhelming thoughts into clear, actionable steps! </p>
                 </div>
-                <div class="intro-image">
+                <div class="split-image">
                     <!-- AI's image rendering for my mindracer mascot :) -->
-                    <img src="images/mind_running.png" alt="MindRacer mascot with tree" width="400">
+                    <img src="images/mind_running.png" alt="MindRacer mascot with tree">
                 </div>
             </div>
             
-            <!-- quick questions to help user pick an activity -->
-            <h3>Need help deciding what to do? Answer these questions:</h3>
+            <div class="card">
+                <!-- quick questions to help user pick an activity -->
+                <h3>Need help deciding what to do? Answer these questions:</h3>
 
-            <!-- form w dropdowns for energy & time -->
-            <form id="decisionTreeForm">
-                <label for="energyLevel" class="form-label">How's your energy today?</label>
-                <select id="energyLevel" name="energyLevel">
-                    <option value="">~ select here ~</option>
-                    <option value="high">high energy</option>
-                    <option value="medium">medium energy</option>
-                    <option value="low">low energy</option>
-                </select>
-                <br><br>
-                
-                <label for="timeAvailable" class="form-label">How much time do you have?</label>
-                <select id="timeAvailable" name="timeAvailable">
-                    <option value="">~ select here ~</option>
-                    <option value="lots">lots of time</option>
-                    <option value="some">some time</option>
-                    <option value="little">very little time</option>
-                </select>
-                <br><br>
-                
-                <!-- button to trigger js calc -->
-                <!-- added the lil brain logo to make it cuter  -->
-            <button type="submit" id="getSuggestionBtn">
-                RACE MY MIND →
-                <img src="images/mindracer-logo-v2.png" alt="" style="height: 40px; vertical-align: middle; margin-left: 8px; display: inline; filter: drop-shadow(0 0 5px rgba(100, 40, 40, 0.8));">
-            </button>
-            </form>
+                <!-- form w dropdowns for energy & time -->
+                <form id="decisionTreeForm" class="card split">
+                    <div class="split-content">
+                        <label for="energyLevel" class="form-label">How's your energy today?</label>
+                        <select id="energyLevel" name="energyLevel">
+                            <option value=""> Select Here</option>
+                            <option value="high">high energy</option>
+                            <option value="medium">medium energy</option>
+                            <option value="low">low energy</option>
+                        </select>
+                        <br><br>
+                       
+                        <label for="timeAvailable" class="form-label">How much time do you have?</label>
+                        <select id="timeAvailable" name="timeAvailable">
+                            <option value=""> Select Here</option>
+                            <option value="lots">lots of time</option>
+                            <option value="some">some time</option>
+                            <option value="little">very little time</option>
+                        </select>
+                        <br><br>
+                    </div> 
+                    <!-- button to trigger js calc -->
+                    <!-- added the lil brain logo to make it cuter  -->
+                    <button type="submit" class="btn split-image">
+                        <img src="images/mindracer-logo-v2.png" alt="" class="btn-icon">
+                        RACE MY MIND →
+                    </button>
+                </form>
+            </div>
             <!-- new:hw11 form feedback -->
             <!-- form feedback messages -->
-            <div id="formFeedback" style="margin-top: 10px; font-size: 14px; display: none;"></div>
-
+            <div id="formFeedback"></div>
             <!-- hidden result area, shows after button click -->
-            <div id="suggestionResult">
+            <div id="suggestionResult" class="card">
                 <h3>here's what you should do:</h3>
                 <p id="activitySuggestion"></p>
                 <div id="meditationSection">
-                <h4 id="meditationHeading">Too Stressed? Let's Meditate ~</h4>
-                <!-- embedded video (line below taken directly from youtube's share anf embed feature) -->
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/y8KSid0WFwY?si=1aEbS3SGlTDef6IA" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
+                    <h4 id="meditationHeading">Too Stressed? Let's Meditate ~</h4>
+                    <!-- embedded video (line below taken directly from youtube's share anf embed feature) -->
+                    <iframe src="https://www.youtube.com/embed/y8KSid0WFwY?si=1aEbS3SGlTDef6IA" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
             </div>
 
             <!-- new section for more suggestions list -->
-            <div id="moreSuggestionsSection" style="display: none;">
+            <div id="moreSuggestionsSection" class="card">
                 <h3>other activities you might like:</h3>
                 <ul id="suggestionsList"></ul>
             </div>
 
-            <div class="button-group">
-                <button type="button" id="resetBtn">Start Over</button>
-                <button type="button" id="moreBtn">More Suggestions</button>
+            <div class="card button-group">
+                <button type="button" id="resetBtn" class="btn">Start Over</button>
+                <button type="button" id="moreBtn" class="btn">More Suggestions</button>
             </div>
 
             <br><hr><br>
 
-            <div class="two-col">
-                <div class="card-left">
-                    <!-- future section to dsiplay the users current tree(s) -->
-                    <h2 id="tree-preview-title">Interactive Tree Preview</h2>
-                    <p class="section-note">As you add steps, your tree will appear here.</p>
-                    <!-- example imagery for chose activities (ie reading etc) -->
-                    <img src="images/mind_reading.png" alt="MindRacer mascot reading" width="200">
-                    <!-- side elements from wireframe , will *eventually* be interactive-->
-                    <div class="button-group">
-                        <button type="button" class="action-btn">Modify moods</button>
-                        <button type="button" class="action-btn">Modify habits</button>
-                        <button type="button" class="action-btn">Link moods & habits</button>
-                    </div>
-                </div>
-                <div class="card-right">
-                    <h2>customize your decision tree</h2>
+            <div class="grid-2col">
+
+                <div class="card">
+                    <h2> Curate Your Tree</h2>
                     <p><em>coming soon! personalize your experience</em></p>
+
+
+                    <form id="treeCustomizer">
+                        <label for="tree-name">Name your tree:</label>
+                        <input type="text" id="tree-name" placeholder="enter a tree name…">
+                        <button type="button"  class="btn">Save Preferences</button>  <!--id="savePrefsBtn" --> 
+                    </form>
+
 
                     <h2>browse activities by category</h2>
                     <p><em>explore different types of activities</em></p>
@@ -158,7 +155,21 @@
                         <option value="social">social</option>
                     </select>
 
-                    <div id="categoryActivities" style="margin-top: 20px;"></div>
+                    <div id="categoryActivities"></div>
+                </div>
+                <div class="card">
+                    <!-- future section to dsiplay the users current tree(s) -->
+                    <h2 id="tree-preview-title">Interactive Tree Preview</h2>
+                    <p class="section-note">As you add steps, your tree will appear here.</p>
+                    <!-- example imagery for chose activities (ie reading etc) -->
+                    <img src="images/mind_reading.png" alt="MindRacer mascot reading">
+                    <!-- side elements from wireframe , will *eventually* be interactive-->
+                    <div class="button-group wrap">
+                        <button type="button" class="btn action-btn">Modify moods</button>
+                        <button type="button" class="btn action-btn">Modify habits</button>
+                        <button type="button" class="btn action-btn">Link moods & habits</button>
+                    </div>
+
                 </div>
             </div>
 

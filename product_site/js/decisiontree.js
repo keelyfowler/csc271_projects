@@ -14,10 +14,7 @@ var allLabels = document.getElementsByClassName('content-box');
 var allParagraphs = document.getElementsByTagName('p');
 var firstHeading = document.querySelector('h1');
 
-// customize form elements
-var savePrefsBtn = document.querySelector('#treeCustomizer button');
-var treeNameInput = document.getElementById('tree-name');
-var customizeHeading = document.querySelector('.card-right h2');
+
 
 // meditation section elements
 var meditationSection = document.getElementById('meditationSection');
@@ -180,21 +177,55 @@ function getSuggestion(score) {
     return 'take a moment to breathe and reset';
 }
 
-// function to save preferences
+// customize form elements
+var savePrefsBtn = document.querySelector('#treeCustomizer button');
+var treeNameInput = document.getElementById('tree-name');
+var customizeHeading = document.querySelector('.card-right h2');
+
+
+// button click event for saving preferences
+// savePrefsBtn.addEventListener('click', savePreferences);
+
+var treeCustomizerForm = document.getElementById('treeCustomizer');
+
+treeCustomizerForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // no reload page
+    savePreferences();      //function call
+});
+
+
 function savePreferences() {
-    var treeName = treeNameInput.value;
-    
-    // use textContent to update heading
-    if (treeName !== '') {
-        customizeHeading.textContent = 'your tree: ' + treeName;
-    } else {
-        customizeHeading.textContent = 'preferences saved!';
+    var treeName = treeNameInput.value.trim();
+
+    // if empty, dont save
+    if (treeName === '') {
+        //warning
+        formFeedback.textContent = 'please enter a name before saving your tree';
+        formFeedback.style.color = '#914040';
+        formFeedback.style.display = 'block';
+
+        //highlight user input
+        treeNameInput.style.border = '2px solid #914040';
+        treeNameInput.style.backgroundColor = '#fff6f6';
+        
+        return; // stop
     }
-    
-    // change form background to show it saved
-    var rightCard = document.querySelector('.card-right');
-    rightCard.style.backgroundColor = '#d4e8d4';
+
+    // clear warnings
+    treeNameInput.style.border = '';
+    treeNameInput.style.backgroundColor = '';
+    formFeedback.style.display = 'none';
+
+    //update heading
+    customizeHeading.textContent = 'preferences saved!';
+
+    // show user’s actual tree name under it
+    var previewTitle = document.getElementById("tree-preview-title");
+    if (previewTitle) {
+        previewTitle.textContent = treeName;
+    }
 }
+
 
 // resets the entire form and hides all result sections
 // basic function with no parameters or return value
@@ -349,8 +380,6 @@ decisionForm.addEventListener('submit', function(event) {
 }
 );
 
-// button click event for saving preferences
-savePrefsBtn.addEventListener('click', savePreferences);
 
 // reset form
 var resetBtn = document.getElementById('resetBtn');

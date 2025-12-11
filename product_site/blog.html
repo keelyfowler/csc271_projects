@@ -36,34 +36,35 @@
 
 
     <body>
-
-        <!-- made a divider for this section, relevant to all page for easy id access and css styling -->
-         <div id="main_navigation">
+        <!-- div w id / css styling -->
+        <div id="nav-bar">
             <!-- logo section w/ inline nav links-->
-            <img src="images/mindracer-logo-v1.png" alt="Logo" width="150">
+             <!-- class="btn-logo" -->
+            <img src="images/mindracer-logo-v2.png" alt="MindRacer Logo">
             <!-- links to related web pages  -->
-            <!-- home link temporarily linking to same page since i havent created a home link yet, but mood log works ! -->
-            <a href="decision_tree.html"><strong>Home</strong></a>  
+            <!-- home & decision builder both go to decision_tree for now since i havent made a real home page yet -->
+            <a href="decision_tree.html" ><strong>Home</strong></a>  
+            <a href="decision_tree.html"><strong>Decision Builder</strong></a>
             <a href="mood-log.html"><strong>Mood Log</strong></a>   
             <a href="blog.html" class="active"><strong>Blog</strong></a>   
-            <a href="decision_tree.html"><strong>Decision Builder</strong></a>
-           <hr> 
         </div>
 
         <div class="content-box">
         <!-- blog page header -->
-        <h1>MindRacer's Mental Health Blog</h1>
-        <p>Welcome to your friendly space for self improvement and wellness tips! Our mental health blog is packed with 
-        helpful ADHD resources and practical strategies for managing executive dysfunction. The best part? You can track 
-        how each article resonates with you along your journey!</p>
-        <br><hr><br>
+            <div class="card">
+                <h1>MindRacer's Mental Health Blog</h1>
+                <p>Welcome to your friendly space for self improvement and wellness tips! Our mental health blog is packed with 
+                helpful ADHD resources and practical strategies for managing executive dysfunction. The best part? You can track 
+                how each article resonates with you along your journey!</p>
+                <br><hr><br>
+            </div>
 
         <!-- this section is a placeholder for resourceful blog posts
          div tags might be easier in terms of organization and modification with CSS later -->
 
         <!-- temp blog post placeholder 1 -->
         <!-- class selector for css -->
-        <div class="blog-post">
+        <div class="card">
             <!-- image sourced from UnSplash -->
             <h2>Executive Dysfunction: Your Guide to Making Life Easier</h2>
             <h3><a href="https://www.additudemag.com/what-is-executive-function-disorder/?srsltid=AfmBOop6uC6A3297_bi18B2DC9lhT5uxXWyNL5XbhhVd0tl73LvCdWtB" target="_blank">Click here to read more</a> ~ <em>Executive Dysfunction? Sign and Symptoms of EFD</em> from Attitude Magazine!</h3>
@@ -76,10 +77,11 @@
                 <input type="radio" name="mood1" value="curious">Curious
                 <input type="submit" value="Submit">
             </form>
-        </div> <br><hr><br>
+        </div> 
+        <br><hr><br>
 
         <!-- temp blog post placeholder 2 -->
-        <div class="blog-post">
+        <div class="card">
             <!-- image sourced from UnSplash -->
             <h2>Decision Paralysis Help: Break Free from Overthinking</h2>
             <h3><a href="https://www.psychologytoday.com/us/blog/the-power-of-parallels/202406/navigating-your-way-out-of-decision-paralysis" target="_blank">Click here to read more</a> ~ <em>Navigating Your Way Out of Decision Paralysis</em> from Psychology Today!</h3>
@@ -92,10 +94,11 @@
                 <input type="radio" name="mood2" value="curious">Curious
                 <input type="submit" value="Submit">
             </form>
-        </div> <br><hr><br>
+        </div>
+        <br><hr><br>
 
         <!-- temp blog post placeholder 3 -->
-        <div class="blog-post">
+        <div class="card">
             <!-- image sourced from UnSplash -->
             <h2>Mood Tracker Tips: Your Daily Wellness Check-in</h2>
             <h3><a href="https://www.verywellmind.com/what-is-a-mood-tracker-5119337" target="_blank">Click here to read more</a> ~ <em>How to Use a Mood Tracker</em> from Very Well Mind!</h3>
@@ -108,7 +111,8 @@
                 <input type="radio" name="mood3" value="curious">Curious
                 <input type="submit" value="Submit">
             </form>
-        </div> <br><hr><br>
+        </div> 
+        <br><hr><br>
 
         </div>
     </body>
