@@ -332,7 +332,7 @@ th {
 
     /* navbar adapt */
     #nav-bar {
-        grid-template-columns: 4rem 1fr 1fr, auto, auto;
+        grid-template-columns: 4rem 1fr 1fr;
         font-size: 2rem;
         padding: 0.4rem 1rem;
         justify-content: space-evenly;
