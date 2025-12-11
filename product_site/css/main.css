@@ -61,7 +61,7 @@ img {
     max-width: 100%;
     height: auto; /* autoset height depending on width which depends on container */
     display: block; /* remove gap below pic */
-    margin: auto; /* center pic */
+    /* margin: auto; center pic */
     border-radius: var(--screen-lg);  /* round corners */
 }
 /* styling for divider lines  hr, element selector*/ 
@@ -141,9 +141,12 @@ display:grid --> grid cont. */
     height: auto;
 }
 
+
+
 #nav-bar {
+    float: left;
     display: grid;  /* grid container to posiiton in columns & rows*/
-    grid-template-columns: 8rem 1fr 1fr 1fr 1fr;  /*5 cols, logo & 4 links, auto logo col as wide as image, 1fr = 1 fraction, each link gets equal space of remianing width */
+    grid-template-columns: 8rem 1fr 1fr 1fr 1fr;  /* 5 cols, logo & 4 links, auto logo col as wide as image, 1fr = 1 fraction, each link gets equal space of remianing width
     /* grid-template-columns: auto repeat(4, minmax(0, 1fr));   ← searched online for this to allow text to wrap */
     align-items: center; /* vertical align */
     padding: 1rem 3rem; /* 1=all 4, 2- top/bot, left/right, 3-top, left/right, bottom, 4- top,right,bottom,left - clockwise */
@@ -154,11 +157,14 @@ display:grid --> grid cont. */
     font-size: 1.8rem;
     justify-items: center;
     min-width: 350px;
+    width: 100%
 }
 /* link styling */
 #nav-bar a {
     padding: 0.375rem 0.5rem;  /* rem */
     border-radius: var(--screen-lg);
+    float: none;
+    display: inline-block;
 }
 /* hover stuff */
 #nav-bar a:hover {
@@ -171,10 +177,11 @@ display:grid --> grid cont. */
 }
 /* sage green wrapper  */
 .content-box {
-    width: 90%; 
+    width: 100%; 
     max-width: 1280px; /* slightly wider between A and B */
     min-width: 350px;
-    margin: auto;
+    margin: 5rem auto;
+    float: left;
     padding: 1rem;
     background-color: var(--color-content-bg);
     border-radius: var(--screen-lg); 
@@ -332,14 +339,25 @@ th {
 
     /* navbar adapt */
     #nav-bar {
-        grid-template-columns: 4rem 1fr 1fr;
-        font-size: 2rem;
+        /* grid-template-columns: 4rem 1fr 1fr; */
+        font-size: 2rem; 
         padding: 0.4rem 1rem;
+        float: left;
+        justify-content: center; 
+        display: flex;
+        flex-wrap: wrap;
+        /* align-items: center; */
         justify-content: space-evenly;
+        gap: 0.5rem;
+    }
+
+    #nav-bar img {
+        /* float: left; */
+        width: 5rem;
     }
 
     #nav-bar a {
-        padding: 0.2rem 0.4rem;
+        /* padding: 0.2rem 0.4rem; */
         font-size: 1.3rem;
     }
 
