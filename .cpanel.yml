@@ -3,5 +3,4 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/keelyfowler/public_html/
     - /bin/cp -R * $DEPLOYPATH
-    ---
 
